@@ -41,13 +41,13 @@ WARNING: Before you use QuickSight to create visualizations, make sure you have 
 . Choose *Sign up for QuickSight*.
 . Choose *Standard*. To confirm, choose *Continue*. 
 . On the *Create your QuickSight account* page, perform these steps:
-** Type a unique name for your QuickSight subscription account. Your account name can contain only characters (A–Z and a–z), digits (0–9), and hyphens (-).
-** Type your email address to receive QuickSight service and usage notifications.
-** (Optional) Choose the AWS Region for your default Super-fast, Parallel, In-memory Calculation Engine (SPICE) capacity. This Region is where your account’s free SPICE capacity is allocated after signing up. Note that you can't change the default capacity Region later, but you can purchase additional SPICE capacity in different Regions as needed. For more information, see https://docs.aws.amazon.com/quicksight/latest/user/regions.html[AWS Regions, Websites, IP Address Ranges, and Endpoints^].
-** (Optional) Choose whether to allow autodiscovery of your AWS resources. Give QuickSight access to the S3 buckets that begin with text_analysis_output and text_analysis_athena_results. You can change these options later in the *Manage Account* section. For more information, see https://docs.aws.amazon.com/quicksight/latest/user/autodiscover-aws-data-sources.html[Allowing Autodiscovery of AWS Resources^].
+.. Type a unique name for your QuickSight subscription account. Your account name can contain only characters (A–Z and a–z), digits (0–9), and hyphens (-).
+.. Type your email address to receive QuickSight service and usage notifications.
+.. (Optional) Choose the AWS Region for your default Super-fast, Parallel, In-memory Calculation Engine (SPICE) capacity. This Region is where your account’s free SPICE capacity is allocated after signing up. Note that you can't change the default capacity Region later, but you can purchase additional SPICE capacity in different Regions as needed. For more information, see https://docs.aws.amazon.com/quicksight/latest/user/regions.html[AWS Regions, Websites, IP Address Ranges, and Endpoints^].
+.. (Optional) Choose whether to allow autodiscovery of your AWS resources. Give QuickSight access to the S3 buckets that begin with *text_analysis_output* and *text_analysis_athena_results*. You can change these options later in the *Manage Account* section. For more information, see https://docs.aws.amazon.com/quicksight/latest/user/autodiscover-aws-data-sources.html[Allowing Autodiscovery of AWS Resources^].
 . Review your choices, and choose *Finish*.
 
-After you have completed these steps successfully, you can explore Amazon QuickSight and its features.
+After you have completed these steps successfully, you can explore QuickSight and its features.
 
 To access QuickSight from the portal website, choose the QuickSight button in the center of the navigation bar. Provide your email address to associate with QuickSight.
 
@@ -66,7 +66,6 @@ Perform these steps:
 . Go back to your QuickSight tab and paste the query in the custom SQL text area.
 . Choose *Confirm Query*.
 . If the AWS Glue crawler has not run the uploaded audio files yet, the page will display an error message similar to the following figure:
-+
 [#error]
 .Crawler error
 [link=images/crawler-error.png]
