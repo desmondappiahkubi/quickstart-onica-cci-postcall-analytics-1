@@ -24,7 +24,7 @@ As shown in Figure 1, the Quick Start sets up the following:
 * An S3 bucket that stores the text analysis output.
 * Additional AWS services: 
 ** An Amazon DynamoDB table that stores audio Uniform Resource Identifier (URI), transcript URI, text analysis URI, and job status.
-** An Amazon Glue crawler that pulls metadata from the text analysis and a glue table.
+** An AWS Glue crawler that pulls metadata from the text analysis and DynamoDB table.
 ** An Amazon Athena query that fetches turn-by-turn sentiment and scores.
 ** Amazon QuickSight for viewing dashboards and reports from post-call data.
 
