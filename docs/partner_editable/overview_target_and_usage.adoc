@@ -2,8 +2,8 @@
 // Identify your target audience and explain how/why they would use this Quick Start.
 //Avoid borrowing text from third-party websites (copying text from AWS service documentation is fine). Also, avoid marketing-speak, focusing instead on the technical aspect.
 
-This Quick Start reference deployment guide provides step-by-step instructions for deploying {partner-product-name} on the AWS Cloud.
+This Quick Start deployment guide provides step-by-step instructions for deploying {partner-product-name} on the AWS Cloud.
 
-This Quick Start is for users who wants to setup {partner-product-name} on AWS, to help drive deeper quality management insights through automatic analysis of contact center conversations, generating actionable insights such as product and service feedback loops that can be used to benefit the rest of the organization, or the best performing interactions such as those ending with a positive sentiment score.
+This Quick Start is for users who want to set up {partner-product-name} on AWS to help drive deeper quality management insights through automatic analysis of contact center conversations. The analysis generates actionable insights such as product and service feedback loops that can be used to benefit the rest of the organization. Another valuable insight is identifying the best performing interactions such as those ending with a positive sentiment score.
 
-This Quick Start uses Amazon Transcribe for Automatic Speech Recognition to create a high-quality transcript. Amazon Comprehend apply NLP to the transcript and analyze the interactions. Using Amazon QuickSight, customers can view the collected data quickly to see the operational dashboards, reports and other deep insights collected from the post call data.
+This Quick Start uses Amazon Transcribe for automatic speech recognition (ASR) to create a high-quality transcript. Amazon Comprehend applies natural language processing (NLP) to the transcript and analyzes the interactions. Using Amazon QuickSight, customers can view the collected data quickly to see the operational dashboards, reports, and other deep insights that are collected from the post-call data.

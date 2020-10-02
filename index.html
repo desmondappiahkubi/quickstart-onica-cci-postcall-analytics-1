@@ -768,14 +768,14 @@ a img {
     border: 1px solid #A4A4A4;
 }
 
-#preview_mode {
+.preview_mode {
 	border-color:#e0e0dc;
 	-webkit-box-shadow:0 1px 4px #e0e0dc;
 	box-shadow:0 1px 4px #e0e0dc;
   background:#ffffb3;
   padding-bottom: 2rem;
 }
-#preview_mode .tableblock {
+.preview_mode .tableblock {
   background:#ffffb3;
 }
 </style>
@@ -816,11 +816,8 @@ a img {
 <li><a href="#_troubleshooting">Troubleshooting</a></li>
 <li><a href="#_send_us_feedback">Send us feedback</a></li>
 <li><a href="#_quick_start_reference_deployments">Quick Start reference deployments</a></li>
-<li><a href="#_github_repository">GitHub repository</a>
-<ul class="sectlevel3">
+<li><a href="#_github_repository">GitHub repository</a></li>
 <li><a href="#_notices">Notices</a></li>
-</ul>
-</li>
 </ul>
 </div>
 </div>
@@ -831,13 +828,13 @@ a img {
 <h2 id="_quick_start_reference_deployment" class="discrete text-left text-center">Quick Start Reference Deployment</h2>
 <div class="imageblock text-center">
 <div class="content">
-<img src="https://aws-quickstart.s3.amazonaws.com/quickstart-onica-cci-postcall-analytics/docs/boilerplate/.images/aws-quickstart-graphic.png" alt="QS" width="80" height="80">
+<img src="images/aws-quickstart-graphic.png" alt="QS" width="80" height="80">
 </div>
 </div>
 <div class="paragraph text-center">
-<p><strong>August, 2020</strong><br>
+<p><strong>October, 2020</strong><br>
 <em>Onica, a Rackspace Technology Company</em><br>
-<em>Amazon Web Services (AWS)</em></p>
+<em>Shivansh Singh, Solutions Architect, AWS</em></p>
 </div>
 <div class="admonitionblock tip text-left">
 <table>
@@ -861,13 +858,13 @@ report bugs, or submit feature ideas for this Quick Start.
 <h2 id="_overview">Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This Quick Start reference deployment guide provides step-by-step instructions for deploying Contact Center Intelligence Post-call Analytics on the AWS Cloud.</p>
+<p>This Quick Start deployment guide provides step-by-step instructions for deploying Contact Center Intelligence Post-call Analytics on the AWS Cloud.</p>
 </div>
 <div class="paragraph">
-<p>This Quick Start is for users who wants to setup Contact Center Intelligence Post-call Analytics on AWS, to help drive deeper quality management insights through automatic analysis of contact center conversations, generating actionable insights such as product and service feedback loops that can be used to benefit the rest of the organization, or the best performing interactions such as those ending with a positive sentiment score.</p>
+<p>This Quick Start is for users who want to set up Contact Center Intelligence Post-call Analytics on AWS to help drive deeper quality management insights through automatic analysis of contact center conversations. The analysis generates actionable insights such as product and service feedback loops that can be used to benefit the rest of the organization. Another valuable insight is identifying the best performing interactions such as those ending with a positive sentiment score.</p>
 </div>
 <div class="paragraph">
-<p>This Quick Start uses Amazon Transcribe for Automatic Speech Recognition to create a high-quality transcript. Amazon Comprehend apply NLP to the transcript and analyze the interactions. Using Amazon QuickSight, customers can view the collected data quickly to see the operational dashboards, reports and other deep insights collected from the post call data.</p>
+<p>This Quick Start uses Amazon Transcribe for automatic speech recognition (ASR) to create a high-quality transcript. Amazon Comprehend applies natural language processing (NLP) to the transcript and analyzes the interactions. Using Amazon QuickSight, customers can view the collected data quickly to see the operational dashboards, reports, and other deep insights that are collected from the post-call data.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -889,10 +886,10 @@ collaborated with AWS on the content of the Quick Start.
 <h2 id="_contact_center_intelligence_post_call_analytics_on_aws">Contact Center Intelligence Post-call Analytics on AWS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This Quick Start deploys a serverless architecture to perform analytics on post call data for contact center solutions. It creates an S3 bucket where call recordings are dropped, which is processed using Amazon Transcribe for automatic speech recognition to create high quality transcript. Natural language processing is done on these transcripts using Amazon Comprehend and result is stored in S3 bucket and in DyanamoDb tables.</p>
+<p>This Quick Start deploys a serverless architecture to perform analytics on post-call data for contact center solutions. It creates an Amazon Simple Storage Service (Amazon S3) bucket for dropping call recordings. Call recordings are processed using Amazon Transcribe for automatic speech recognition to create high-quality transcript. Amazon Comprehend performs natural language processing on the transcripts and stores the results in an Amazon S3 bucket within Amazon DynamoDB tables.</p>
 </div>
 <div class="paragraph">
-<p>You can also use Amazon QuickSight to view the collected data to quickly see the operational dashboards, and reports.</p>
+<p>You can also use Amazon QuickSight to view the collected data and access the operational dashboards and reports.</p>
 </div>
 </div>
 </div>
@@ -928,7 +925,7 @@ After you deploy the Quick Start, enable the <a href="https://docs.aws.amazon.co
 <h2 id="_software_licenses">Software licenses</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This Quick Start doesn&#8217;t require any license or subscription.</p>
+<p>This Quick Start doesn&#8217;t require a license or subscription.</p>
 </div>
 </div>
 </div>
@@ -936,13 +933,13 @@ After you deploy the Quick Start, enable the <a href="https://docs.aws.amazon.co
 <h2 id="_architecture">Architecture</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Deploying this Quick Start with <strong>default parameters</strong> builds the following <em>Contact Center Intelligence Post-call Analytics</em> environment in the AWS Cloud.</p>
+<p>Deploying this Quick Start with default parameters builds the following Contact Center Intelligence Post-call Analytics environment in the AWS Cloud.</p>
 </div>
 <div id="architecture1" class="imageblock">
 <div class="content">
-<a class="image" href="images/onica-pca-arch.png"><img src="images/onica-pca-arch.png" alt="Architecture" width="648" height="439"></a>
+<a class="image" href="images/onica-architecture-diagram.png"><img src="images/onica-architecture-diagram.png" alt="Architecture" width="648" height="439"></a>
 </div>
-<div class="title">Figure 1. Quick Start architecture for <em>Contact Center Intelligence Post-call Analytics</em> on AWS</div>
+<div class="title">Figure 1. Quick Start architecture for Contact Center Intelligence Post-call Analytics on AWS</div>
 </div>
 <div class="paragraph">
 <p>As shown in Figure 1, the Quick Start sets up the following:</p>
@@ -950,49 +947,69 @@ After you deploy the Quick Start, enable the <a href="https://docs.aws.amazon.co
 <div class="ulist">
 <ul>
 <li>
-<p>An S3 bucket that stores contact center audio recordings.</p>
-</li>
+<p>For the portal website where users upload audio recordings:</p>
+<div class="ulist">
+<ul>
 <li>
-<p>A Lambda function that transcribes the audio recordings to call transcripts.</p>
-</li>
-<li>
-<p>An S3 bucket that stores the transcripts.</p>
-</li>
-<li>
-<p>A DynamoDB table that stores audio URI, transcript URI, text analysis URI and job status.</p>
-</li>
-<li>
-<p>A lambda function that separates turns from the transcript.</p>
-</li>
-<li>
-<p>An S3 bucket that stores the separated turn transcripts.</p>
-</li>
-<li>
-<p>A lambda function that analyses the separated transcripts.</p>
-</li>
-<li>
-<p>An S3 bucket that stores the text analysis output.</p>
-</li>
-<li>
-<p>A glue crawler that pulls metadata from the text analysis and a glue table.</p>
-</li>
-<li>
-<p>An Athena Query that fetches turn by turn sentiment and scores.</p>
+<p>An Amazon CloudFront distribution to serve HTTPS requests to an Amazon S3 bucket that hosts the contents of the portal website.</p>
 </li>
 <li>
 <p>Amazon API Gateway that exposes provisioning endpoints through HTTPS.</p>
 </li>
 <li>
-<p>A dashboard integrated with QuickSight.</p>
-</li>
-<li>
-<p>A CloudFront distribution to serve HTTPS request to an S3 Bucket hosting all the contents of the solution portal.</p>
-</li>
-<li>
-<p>Amazon Cognito to manage users and give access to the solution portal.</p>
+<p>Amazon Cognito to manage users and give access to the portal website.</p>
 </li>
 <li>
 <p>An S3 bucket to host the portal website.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>An S3 bucket that stores contact center audio recordings and metadata.</p>
+</li>
+<li>
+<p>An AWS Lambda function that transcribes the audio recordings to call transcripts.</p>
+</li>
+<li>
+<p>Amazon Transcribe for creating high-quality transcripts.</p>
+</li>
+<li>
+<p>An S3 bucket that stores the transcripts.</p>
+</li>
+<li>
+<p>A Lambda function that separates turns from the transcript.</p>
+</li>
+<li>
+<p>An S3 bucket that stores the separated (formatted) turn transcripts.</p>
+</li>
+<li>
+<p>A Lambda function that analyses the separated transcripts.</p>
+</li>
+<li>
+<p>Amazon Comprehend for analyzing interactions within the transcript.</p>
+</li>
+<li>
+<p>An S3 bucket that stores the text analysis output.</p>
+</li>
+<li>
+<p>Additional AWS services:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>An Amazon DynamoDB table that stores audio Uniform Resource Identifier (URI), transcript URI, text analysis URI, and job status.</p>
+</li>
+<li>
+<p>An Amazon Glue crawler that pulls metadata from the text analysis and a glue table.</p>
+</li>
+<li>
+<p>An Amazon Athena query that fetches turn-by-turn sentiment and scores.</p>
+</li>
+<li>
+<p>Amazon QuickSight for viewing dashboards and reports from post-call data.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -1024,22 +1041,22 @@ Cloud.</p>
 <p><a href="https://console.aws.amazon.com/transcribe/home" target="_blank" rel="noopener">Amazon Transcribe</a> is a fully managed automatic speech recognition (ASR) service that makes it easy for us to convert audio conversations to text.</p>
 </li>
 <li>
-<p><a href="https://docs.aws.amazon.com/glue/index.html" target="_blank" rel="noopener">AWS Glue</a> is a fully managed ETL (extract, transform, and load) service that makes it simple and cost-effective to categorize data, clean it, enrich it, and move it reliably between various data stores. AWS Glue crawlers automatically infer database and table schema from the text analysis output file and stores the associated metadata in the AWS Glue Data Catalog.</p>
+<p><a href="https://docs.aws.amazon.com/glue/index.html" target="_blank" rel="noopener">AWS Glue</a> is a fully managed ETL (extract, transform, and load) service that makes it simple and cost-effective to categorize, clean, enrich, and move data reliably between various data stores. AWS Glue crawlers automatically infer database and table schema from the text analysis output file and stores the associated metadata in the AWS Glue Data Catalog.</p>
 </li>
 <li>
-<p><a href="https://docs.aws.amazon.com/athena/index.html" target="_blank" rel="noopener">Amazon Athena</a> is an interactive query service that makes it easy to analyze data directly in Amazon Simple Storage Service (Amazon S3) using standard SQL. You can use Athena to run ad-hoc queries against the text analysis bucket.</p>
+<p><a href="https://docs.aws.amazon.com/athena/index.html" target="_blank" rel="noopener">Amazon Athena</a> is an interactive query service that makes it easy to analyze data directly in Amazon S3 using standard Structured Query Language (SQL). You can use Athena to run ad-hoc queries against the text analysis bucket.</p>
 </li>
 <li>
-<p><a href="https://docs.aws.amazon.com/dynamodb/index.html" target="_blank" rel="noopener">Amazon DynamoDB</a> is a fully managed NoSQL database service that is used in the solution to store the Status of workload throughout.</p>
+<p><a href="https://docs.aws.amazon.com/dynamodb/index.html" target="_blank" rel="noopener">Amazon DynamoDB</a> is a fully managed NoSQL database service that is used in the solution to store the status of workload throughout.</p>
 </li>
 <li>
-<p><a href="https://docs.aws.amazon.com/lambda/index.html" target="_blank" rel="noopener">AWS Lambda</a> allows you to run code without provisioning or managing servers.</p>
+<p><a href="https://docs.aws.amazon.com/lambda/index.html" target="_blank" rel="noopener">AWS Lambda</a> lets you run code without provisioning or managing servers.</p>
 </li>
 <li>
-<p><a href="https://aws.amazon.com/documentation/cloudformation/" target="_blank" rel="noopener">AWS CloudFormation</a> enables you to create and provision AWS infrastructure deployments predictably and repeatedly. The entire solution’s infrastructure is built as Code with CloudFormation.</p>
+<p><a href="https://aws.amazon.com/documentation/cloudformation/" target="_blank" rel="noopener">AWS CloudFormation</a> lets you create and provision AWS infrastructure deployments predictably and repeatedly. The entire solution’s infrastructure is built as code with CloudFormation.</p>
 </li>
 <li>
-<p><a href="https://docs.aws.amazon.com/quicksight/latest/user/welcome.html" target="_blank" rel="noopener">AWS QuickSight</a> is a business analytics service you can use to build visualizations, perform ad hoc analysis, and get business insights from your data. In this solution we use QuickSight to get an aggregated view of the call transcripts insights. We use it to answer questions like “What was the most negative statement uttered by a customer?”</p>
+<p><a href="https://docs.aws.amazon.com/quicksight/latest/user/welcome.html" target="_blank" rel="noopener">Amazon QuickSight</a> is a business analytics service you can use to build visualizations, perform one-time (ad hoc) analysis, and get business insights from your data. In this Quick Start, QuickSight provides an aggregated view of insights of call transcripts. You can use QuickSight to answer questions such as “What was the most negative statement uttered by a customer?”</p>
 </li>
 </ul>
 </div>
@@ -1758,8 +1775,11 @@ and to share your customizations with others.</p>
 <div class="paragraph">
 <p>© 2020, Amazon Web Services Inc., or its affiliates, and Onica, a Rackspace Technology Company. All rights reserved.</p>
 </div>
-<div class="sect3">
-<h4 id="_notices">Notices</h4>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_notices">Notices</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This document is provided for informational purposes only. It represents AWS’s current product offerings and practices as of the date of issue of this document, which are subject to change without notice. Customers are responsible for making their own independent assessment of the information in this document and any use of AWS’s products or services, each of which is provided “as is” without warranty of any kind, whether expressed or implied. This document does not create any warranties, representations, contractual commitments, conditions, or assurances from AWS, its affiliates, suppliers, or licensors. The responsibilities and liabilities of AWS to its customers are controlled by AWS agreements, and this document is not part of, nor does it modify, any agreement between AWS and its customers.</p>
 </div>
@@ -1769,10 +1789,9 @@ and to share your customizations with others.</p>
 </div>
 </div>
 </div>
-</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-09-04 01:25:00 UTC
+Last updated 2020-10-02 13:45:04 UTC
 </div>
 </div>
 </body>
