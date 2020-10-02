@@ -1,5 +1,3 @@
 // There are generally two deployment options. If additional are required, add them here
 
-This Quick Start provides following deployment option:
-
-* *Deploy {partner-product-name} into an AWS Account (end-to-end deployment)*. This option builds a new AWS environment consisting of the AWS Lambda functions, S3 buckets, CloudFront distribution, Cognito user pool, API gateway endpoint, Glue crawler and DyanmoDb table.
+This Quick Start offers a single option for deploying {partner-product-name} to an AWS account as an end-to-end deployment. It builds a new AWS environment consisting of the AWS Lambda functions, Amazon S3 buckets, CloudFront distribution, Amazon Cognito user pool, Amazon API Gateway endpoint, AWS Glue crawler, and an Amazon DynamoDB table.

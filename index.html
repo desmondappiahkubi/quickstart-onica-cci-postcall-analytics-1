@@ -805,11 +805,11 @@ a img {
 <li><a href="#_launch_cci_post_call_analytics">Launch CCI Post-call analytics</a></li>
 </ul>
 </li>
-<li><a href="#_test_deployment">Test deployment</a></li>
+<li><a href="#_test_the_deployment">Test the deployment</a></li>
 <li><a href="#_post_deployment_steps">Post deployment steps</a>
 <ul class="sectlevel2">
 <li><a href="#_subscribe_to_amazon_quicksight">Subscribe to Amazon QuickSight</a></li>
-<li><a href="#_create_new_analysis">Create new Analysis</a></li>
+<li><a href="#_create_new_analysis">Create new analysis</a></li>
 </ul>
 </li>
 <li><a href="#_faq">FAQ</a></li>
@@ -1000,7 +1000,7 @@ After you deploy the Quick Start, enable the <a href="https://docs.aws.amazon.co
 <p>An Amazon DynamoDB table that stores audio Uniform Resource Identifier (URI), transcript URI, text analysis URI, and job status.</p>
 </li>
 <li>
-<p>An Amazon Glue crawler that pulls metadata from the text analysis and a glue table.</p>
+<p>An AWS Glue crawler that pulls metadata from the text analysis and DynamoDB table.</p>
 </li>
 <li>
 <p>An Amazon Athena query that fetches turn-by-turn sentiment and scores.</p>
@@ -1030,33 +1030,33 @@ deploy, and operate your infrastructure and applications on the AWS
 Cloud.</p>
 </div>
 <div class="paragraph">
-<p>This Quick Start assumes familiarity with following AWS services.</p>
+<p>This Quick Start assumes familiarity with the following AWS services:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.aws.amazon.com/comprehend/index.html" target="_blank" rel="noopener">Amazon Comprehend</a> uses natural language processing (NLP) to extract insights about the content of the call transcripts. It develops insights by recognizing the entities, key phrases, language, sentiments in the transcript.</p>
+<p><a href="https://docs.aws.amazon.com/comprehend/index.html" target="_blank" rel="noopener">Amazon Comprehend</a> uses natural language processing (NLP) to extract insights about the content of call transcripts. It develops insights by recognizing the entities, key phrases, language, and sentiments in the transcript.</p>
 </li>
 <li>
-<p><a href="https://console.aws.amazon.com/transcribe/home" target="_blank" rel="noopener">Amazon Transcribe</a> is a fully managed automatic speech recognition (ASR) service that makes it easy for us to convert audio conversations to text.</p>
+<p><a href="https://console.aws.amazon.com/transcribe/home" target="_blank" rel="noopener">Amazon Transcribe</a> is a fully managed automatic speech recognition (ASR) service that makes it easy to convert audio conversations to text.</p>
 </li>
 <li>
-<p><a href="https://docs.aws.amazon.com/glue/index.html" target="_blank" rel="noopener">AWS Glue</a> is a fully managed ETL (extract, transform, and load) service that makes it simple and cost-effective to categorize, clean, enrich, and move data reliably between various data stores. AWS Glue crawlers automatically infer database and table schema from the text analysis output file and stores the associated metadata in the AWS Glue Data Catalog.</p>
+<p><a href="https://docs.aws.amazon.com/glue/index.html" target="_blank" rel="noopener">AWS Glue</a> is a fully managed ETL (extract, transform, and load) service for categorizing, cleaning, enriching, and moving data reliably between various data stores. AWS Glue crawlers automatically infer database and table schema from the text analysis output file and stores the associated metadata in the AWS Glue data catalog.</p>
 </li>
 <li>
-<p><a href="https://docs.aws.amazon.com/athena/index.html" target="_blank" rel="noopener">Amazon Athena</a> is an interactive query service that makes it easy to analyze data directly in Amazon S3 using standard Structured Query Language (SQL). You can use Athena to run ad-hoc queries against the text analysis bucket.</p>
+<p><a href="https://docs.aws.amazon.com/athena/index.html" target="_blank" rel="noopener">Amazon Athena</a> is an interactive query service for analyzing data directly in Amazon S3 using standard Structured Query Language (SQL). You can use Athena to run ad hoc queries against the text analysis bucket.</p>
 </li>
 <li>
-<p><a href="https://docs.aws.amazon.com/dynamodb/index.html" target="_blank" rel="noopener">Amazon DynamoDB</a> is a fully managed NoSQL database service that is used in the solution to store the status of workload throughout.</p>
+<p><a href="https://docs.aws.amazon.com/dynamodb/index.html" target="_blank" rel="noopener">Amazon DynamoDB</a> is a fully managed NoSQL database service for storing workload and job status.</p>
 </li>
 <li>
 <p><a href="https://docs.aws.amazon.com/lambda/index.html" target="_blank" rel="noopener">AWS Lambda</a> lets you run code without provisioning or managing servers.</p>
 </li>
 <li>
-<p><a href="https://aws.amazon.com/documentation/cloudformation/" target="_blank" rel="noopener">AWS CloudFormation</a> lets you create and provision AWS infrastructure deployments predictably and repeatedly. The entire solution’s infrastructure is built as code with CloudFormation.</p>
+<p><a href="https://aws.amazon.com/documentation/cloudformation/" target="_blank" rel="noopener">AWS CloudFormation</a> lets you create and provision AWS infrastructure deployments predictably and repeatedly. The entire infrastructure of the Quick Start is built as code with CloudFormation.</p>
 </li>
 <li>
-<p><a href="https://docs.aws.amazon.com/quicksight/latest/user/welcome.html" target="_blank" rel="noopener">Amazon QuickSight</a> is a business analytics service you can use to build visualizations, perform one-time (ad hoc) analysis, and get business insights from your data. In this Quick Start, QuickSight provides an aggregated view of insights of call transcripts. You can use QuickSight to answer questions such as “What was the most negative statement uttered by a customer?”</p>
+<p><a href="https://docs.aws.amazon.com/quicksight/latest/user/welcome.html" target="_blank" rel="noopener">Amazon QuickSight</a> is a business analytics service for building visualizations, performing one-time (ad hoc) analysis, and getting business insights from data. In this Quick Start, QuickSight provides an aggregated view of insights of call transcripts. You can use QuickSight to answer questions such as “What was the most negative statement uttered by a customer?”</p>
 </li>
 </ul>
 </div>
@@ -1200,14 +1200,7 @@ Certain Regions are available on an opt-in basis. Refer to the AWS Documentation
 <div class="sect3">
 <h4 id="_deployment_options">Deployment options</h4>
 <div class="paragraph">
-<p>This Quick Start provides following deployment option:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Deploy Contact Center Intelligence Post-call Analytics into an AWS Account (end-to-end deployment)</strong>. This option builds a new AWS environment consisting of the AWS Lambda functions, S3 buckets, CloudFront distribution, Cognito user pool, API gateway endpoint, Glue crawler and DyanmoDb table.</p>
-</li>
-</ul>
+<p>This Quick Start offers a single option for deploying Contact Center Intelligence Post-call Analytics to an AWS account as an end-to-end deployment. It builds a new AWS environment consisting of the AWS Lambda functions, Amazon S3 buckets, CloudFront distribution, Amazon Cognito user pool, Amazon API Gateway endpoint, AWS Glue crawler, and an Amazon DynamoDB table.</p>
 </div>
 </div>
 </div>
@@ -1221,7 +1214,7 @@ Certain Regions are available on an opt-in basis. Refer to the AWS Documentation
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Sign in to your AWS account at <a href="https://aws.amazon.com" class="bare">https://aws.amazon.com</a> with an IAM user role that has the necessary permissions. For details, see <a href="#_planning_the_deployment">Planning the deployment</a> earlier in this guide.</p>
+<p>Sign in to your AWS account at <a href="https://aws.amazon.com" class="bare">https://aws.amazon.com</a> with an AWS Identity and Access Management (IAM) user role that has the necessary permissions. For details, see <a href="#_planning_the_deployment">Planning the deployment</a> earlier in this guide.</p>
 </li>
 <li>
 <p>Make sure that your AWS account is configured correctly, as discussed in the <a href="#_technical_requirements">Technical requirements</a> section.</p>
@@ -1246,7 +1239,7 @@ You are responsible for the cost of the AWS services used while running this Qui
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Sign in to your AWS account, and choose one of the following options to launch the AWS CloudFormation template. For help with choosing an option, see <a href="#_deployment_options">deployment options</a> earlier in this guide.</p>
+<p>Sign in to your AWS account, and choose the following option to launch the AWS CloudFormation template.</p>
 </li>
 </ol>
 </div>
@@ -1256,17 +1249,17 @@ You are responsible for the cost of the AWS services used while running this Qui
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://qs_launch_link" target="_blank" rel="noopener">Deploy Contact Center Intelligence Post-call Analytics on AWS</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://fwd.aws/W6edJ" target="_blank" rel="noopener">Deploy Contact Center Intelligence Post-call Analytics on AWS</a></p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Each deployment takes about 15 minutes to complete.</p>
+<p>The deployment takes about 15 minutes to complete.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
 <li>
-<p>Check the AWS Region that’s displayed in the upper-right corner of the navigation bar, and change it if necessary. This is where the infrastructure for Contact Center Intelligence Post-call Analytics will be built. The template is launched in the us-east-1 Region by default.</p>
+<p>Check the AWS Region that’s displayed in the upper-right corner of the navigation bar, and change it if necessary. This Region is where the infrastructure for Contact Center Intelligence Post-call Analytics is built. The template is launched in the us-east-1 Region by default.</p>
 </li>
 </ol>
 </div>
@@ -1446,21 +1439,21 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </div>
 </div>
 <div class="sect1">
-<h2 id="_test_deployment">Test deployment</h2>
+<h2 id="_test_the_deployment">Test the deployment</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Make a note of the portal URL in the Output section of the master stack with key PortalEndpoint.</p>
+<p>Make a note of the portal URL in the <strong>Output</strong> section of the master stack with key PortalEndpoint.</p>
 </li>
 <li>
-<p>Create a User in Cognito under the <strong>UserPool</strong> Created by the stack. Visit this <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-create-user-accounts.html" target="_blank" rel="noopener">how-to</a> guide to learn how to create a user in a Cognito pool if you’re not familiar with it. By default, usernames in this application must be full email addresses, and passwords must contain one of each of numeric, upper-case, lower-case and special characters; these constraints can be changed within the Cognito console.</p>
+<p>Create a user in Amazon Cognito under the <strong>UserPool</strong> that is created by the stack. See <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-create-user-accounts.html" target="_blank" rel="noopener">Creating User Accounts as Administrator</a> to learn how to create a user in a Cognito pool. By default, user names in this application must be full email addresses, and passwords must contain at least one numeric, uppercase, lowercase and special characters. These constraints can be changed within the Cognito console.</p>
 </li>
 <li>
-<p>If you are logged into your AWS account in a browser window already, open the portal endpoint in a different <strong>Incognito Window</strong> as the portal attaches a QuickSight User Role that can interfere with your actual role.</p>
+<p>If you are logged in to your AWS account in a browser window already, open the portal endpoint in a different incognito browser window, as the portal attaches an Amazon QuickSight user role that can interfere with your actual role.</p>
 </li>
 <li>
-<p>Go to the portal and login with the created user.  Upon initial login, you will be prompted to change the temporary password. After you’ve successfully changed the password, you will be directed to the main page where you can see the home page.</p>
+<p>Go to the portal and log in with the created user. Upon initial login, you are prompted to change the temporary password. After you’ve successfully changed the password, you are directed to the main page where you can see the home page, as shown in the following figure.</p>
 <div id="mainPage" class="imageblock">
 <div class="content">
 <a class="image" href="images/portal-main.png"><img src="images/portal-main.png" alt="Portal main page" width="648" height="439"></a>
@@ -1469,19 +1462,13 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </div>
 </li>
 <li>
-<p>Click on the <strong>Upload</strong> button located in the upper right corner of the navigation bar.</p>
+<p>Choose the <strong>Upload</strong> button (located in the upper-right corner of the navigation bar), and upload your audio files.</p>
 </li>
 <li>
-<p>You will be taken to a page where you can upload audio files.</p>
+<p>After a successful upload, the audio processing runs through transcription and text analysis.</p>
 </li>
 <li>
-<p>Click <strong>Upload</strong>.</p>
-</li>
-<li>
-<p>After a successful upload of the audio files the audio processing will run through transcription and text analysis.</p>
-</li>
-<li>
-<p>Click on the <strong>Call Analytics</strong> Logo in the top left of the Navigation Bar to return to home page.</p>
+<p>Choose the <strong>Call Analytics</strong> logo in the top-left corner of the navigation bar to return to home page, as shown in the following figure.</p>
 <div id="mainPageWithCalls" class="imageblock">
 <div class="content">
 <a class="image" href="images/portal-with-calls.png"><img src="images/portal-with-calls.png" alt="Portal main page with calls" width="648" height="439"></a>
@@ -1490,10 +1477,10 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </div>
 </li>
 <li>
-<p>Drill into a call to see <strong>Amazon Comprehend</strong>’s result of the call classifications and turn-by-turn sentiments.</p>
+<p>Open a call to see the call classifications and turn-by-turn sentiments that are provided by Amazon Comprehend.</p>
 </li>
 <li>
-<p>Click on the the [PLAY] icon on each call to playback the original audio file.  Note, not all browsers will be able to playback all file formats that this solution can process; this is due to playback being implemented via the HTML5 &lt;audio&gt; control, and format support is browser-specific.</p>
+<p>Choose the play icon on each call to play back the original audio file. Note that supported file formats are determined by the browser, and playback implementation is handled through the HTML5 audio control.</p>
 </li>
 </ol>
 </div>
@@ -1503,7 +1490,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 <h2 id="_post_deployment_steps">Post deployment steps</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Following steps walk you through the process of how you can create QuickSight dashboards and visualizations to see call analytics and insights.</p>
+<p>Perform the following steps to create Amazon QuickSight dashboards and visualizations to see call analytics and insights.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -1512,7 +1499,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Before you use QuickSight to create visualizations, make sure you have uploaded some audio files so that the glue crawler can create a table from the text_analysis_output bucket. The crawlers are set to run every hour. You can manually run the crawler if it hasn’t run yet. But the table has to exist before QuickSight Athena Connection will succeed.
+Before you use QuickSight to create visualizations, make sure you have uploaded some audio files so that the AWS Glue crawler can create a table from the text_analysis_output Amazon S3 bucket. The crawlers are set to run every hour. You can manually run the crawler if it hasn’t run yet. The table must exist prior to connecting QuickSight and Amazon Athena.
 </td>
 </tr>
 </table>
@@ -1522,115 +1509,98 @@ Before you use QuickSight to create visualizations, make sure you have uploaded 
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Sign in to your AWS account in a different browser or incognito window from the one you are running the ICC portal in (the quicksight user roles will conflict if you don’t) and open Amazon QuickSight from the AWS Management Console. It is located under Analytics, and you can find it by searching for "QuickSight".</p>
+<p>Sign in to your AWS account in a different browser window than the one that is running the portal site (or use an incognito browswer). Otherwise, the QuickSight user roles might conflict.</p>
 </li>
 <li>
-<p>Your AWS account number is displayed for verification purposes. Choose <strong>Sign up for QuickSight</strong>.</p>
+<p>To open QuickSight, navigate to the <strong>Analytics</strong> section in the AWS Management Console, and search for <strong>QuickSight</strong>. Your AWS account number is displayed for verification purposes.</p>
 </li>
 <li>
-<p>Choose <strong>Standard</strong>. To confirm, choose <strong>Continue</strong>. A screen titled <strong>Create your QuickSight account</strong> appears.</p>
+<p>Choose <strong>Sign up for QuickSight</strong>.</p>
 </li>
 <li>
-<p>Make choices for the following items:</p>
+<p>Choose <strong>Standard</strong>. To confirm, choose <strong>Continue</strong>.</p>
+</li>
+<li>
+<p>On the <strong>Create your QuickSight account</strong> page, perform these steps:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Type in a unique name for your Amazon QuickSight subscription account. Your account name can only contain characters (A–Z and a–z), digits (0–9), and hyphens (-).</p>
+<p>Type a unique name for your QuickSight subscription account. Your account name can contain only characters (A–Z and a–z), digits (0–9), and hyphens (-).</p>
 </li>
 <li>
-<p>Type in your email address to receive Amazon QuickSight service and usage notifications.</p>
+<p>Type your email address to receive QuickSight service and usage notifications.</p>
 </li>
 <li>
-<p>(Optional) Choose the AWS region you want to utilize for your default SPICE capacity. This is where your account’s free SPICE capacity is allocated after signing up. Note that you aren&#8217;t able to change the default capacity region later, but you can always purchase additional SPICE capacity in different regions as needed. See AWS Regions, Websites, IP Address Ranges, and Endpoints for information on regions.</p>
+<p>(Optional) Choose the AWS Region for your default Super-fast, Parallel, In-memory Calculation Engine (SPICE) capacity. This Region is where your account’s free SPICE capacity is allocated after signing up. Note that you can&#8217;t change the default capacity Region later, but you can purchase additional SPICE capacity in different Regions as needed. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/regions.html" target="_blank" rel="noopener">AWS Regions, Websites, IP Address Ranges, and Endpoints</a>.</p>
 </li>
 <li>
-<p>(Optional) Choose whether to allow autodiscovery of your AWS resources. Give QuickSight access to the S3 buckets that begin with text_analysis_output and text_analysis_athena_results. You can change these options later in Manage Account. For more information, see Allowing Autodiscovery of AWS Resources.</p>
+<p>(Optional) Choose whether to allow autodiscovery of your AWS resources. Give QuickSight access to the S3 buckets that begin with text_analysis_output and text_analysis_athena_results. You can change these options later in the <strong>Manage Account</strong> section. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/autodiscover-aws-data-sources.html" target="_blank" rel="noopener">Allowing Autodiscovery of AWS Resources</a>.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Review the choices you made, then choose <strong>Finish</strong>.</p>
+<p>Review your choices, and choose <strong>Finish</strong>.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>After you successfully complete signup, you are ready to explore what you can do with Amazon QuickSight.</p>
+<p>After you have completed these steps successfully, you can explore Amazon QuickSight and its features.</p>
 </div>
 <div class="paragraph">
-<p>To access QuickSight from the portal, Click on the QuickSight button in the center of the Nav bar. Enter your email address to associate with QuickSight.</p>
+<p>To access QuickSight from the portal website, choose the QuickSight button in the center of the navigation bar. Provide your email address to associate with QuickSight.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_create_new_analysis">Create new Analysis</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Click on <strong>New Analysis</strong> at the top left corner</p>
-</li>
-<li>
-<p>Click on <strong>New Dataset</strong></p>
-</li>
-<li>
-<p>Select <strong>Athena</strong></p>
-</li>
-<li>
-<p>Enter a Datasource name</p>
-</li>
-<li>
-<p>Click on <strong>Create Datasource</strong></p>
-</li>
-<li>
-<p>Select use custom sql</p>
-</li>
-<li>
-<p>Go to Athena in your AWS console</p>
-</li>
-<li>
-<p>Select Saved Queries</p>
-</li>
-<li>
-<p>Click on the Query named “<strong>Select Turn by turn sentiments</strong>”</p>
-</li>
-<li>
-<p>Copy the Query</p>
-</li>
-<li>
-<p>Go back to your QuickSight tab and paste the query in the custom sql text area</p>
-</li>
-<li>
-<p>Click on <strong>Confirm Query</strong></p>
-</li>
-<li>
-<p>If the Glue crawler has not yet run against your uploaded audio files then you will receive an error message similar to the following.</p>
+<h3 id="_create_new_analysis">Create new analysis</h3>
+<div class="paragraph">
+<p>Perform these steps:
+. Choose <strong>New analysis</strong> in the top-left corner of the page.
+. Choose <strong>New Dataset</strong>.
+. Choose <strong>Athena</strong>.
+. Enter a name for the data source.
+. Choose <strong>Create Datasource</strong>.
+. Select <strong>Use custom SQL</strong>.
+. Go to Athena in your AWS console.
+. Choose <strong>Saved Queries</strong>.
+. Select the query named <strong>Select Turn by turn sentiments</strong>.
+. Copy the query.
+. Go back to your QuickSight tab and paste the query in the custom SQL text area.
+. Choose <strong>Confirm Query</strong>.
+. If the AWS Glue crawler has not run the uploaded audio files yet, the page will display an error message similar to the following figure:</p>
+</div>
+<div class="paragraph">
+<p>+</p>
+</div>
 <div id="error" class="imageblock">
 <div class="content">
 <a class="image" href="images/crawler-error.png"><img src="images/crawler-error.png" alt="Crawler error" width="648" height="439"></a>
 </div>
 <div class="title">Figure 5. Crawler error</div>
 </div>
-</li>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>If this is the case then this can be resolved as follows:</p>
+<p>If you receive an error, perform these steps:</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>Navigate to the AWS Glue service in the AWS Console.</p>
 </li>
 <li>
-<p>Select Crawlers, and select the text-analysis-metadata-crawler entry.</p>
+<p>Choose <strong>Crawlers</strong>, and select the <strong>text-analysis-metadata-crawler</strong> entry.</p>
 </li>
 <li>
-<p>This will show both Tables updated and Tables created as 0 if the crawler hasn’t run.  If this is the case then hit the Run crawler button and wait for it to complete – at this time the Tables added field should have been set to 1.</p>
+<p>If the resulting page shows that both tables updated and created are 0, then the crawler hasn’t run yet. To run the crawler, choose the <strong>Run crawler</strong> button and wait for it to complete. After it finishes, the <strong>Tables added</strong> field is set to 1.</p>
 </li>
 </ol>
 </div>
 </li>
 <li>
-<p>Finish your dataset creation by selecting directly query your data.</p>
+<p>Finish your dataset creation by choosing <strong>Directly query your data</strong>.</p>
 </li>
 <li>
-<p>Click on <strong>visualize</strong>.</p>
+<p>To create an analysis, choose <strong>Visualize</strong>.</p>
 </li>
 </ol>
 </div>
@@ -1644,7 +1614,7 @@ Before you use QuickSight to create visualizations, make sure you have uploaded 
 <p><strong>Q.</strong> I encountered a <strong>CREATE_FAILED</strong> error when I launched the Quick Start.</p>
 </div>
 <div class="paragraph">
-<p><strong>A.</strong> If AWS CloudFormation fails to create the stack, we recommend that you relaunch the template with <strong>Rollback on failure</strong> set to <strong>No</strong>. (This setting is under <strong>Advanced</strong> in the AWS CloudFormation console, <strong>Options</strong> page.) With this setting, the stack’s state is retained and the instance is left running, so you can troubleshoot the issue. (For Windows, look at the log files in %ProgramFiles%\Amazon\EC2ConfigService and C:\cfn\log.)</p>
+<p><strong>A.</strong> If AWS CloudFormation fails to create the stack, relaunch the template with <strong>Rollback on failure</strong> set to <strong>No</strong>. (This setting is under <strong>Advanced</strong> in the AWS CloudFormation console on the <strong>Options</strong> page.) With this setting, the stack’s state is retained and the instance is left running, so you can troubleshoot the issue. (For Windows, look at the log files in %ProgramFiles%\Amazon\EC2ConfigService and C:\cfn\log.)</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -1665,7 +1635,7 @@ When you set <strong>Rollback on failure</strong> to <strong>Disabled</strong>, 
 <p><strong>Q.</strong> I encountered a size limitation error when I deployed the AWS CloudFormation templates.</p>
 </div>
 <div class="paragraph">
-<p><strong>A.</strong> We recommend that you launch the Quick Start templates from the links in this guide or from another S3 bucket. If you deploy the templates from a local copy on your computer or from a location other than an S3 bucket, you might encounter template size limitations. For more information about AWS CloudFormation quotas, see the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html" target="_blank" rel="noopener">AWS documentation</a>.</p>
+<p><strong>A.</strong> Launch the Quick Start templates from the links in this guide or from another Amazon S3 bucket. If you deploy the templates from a local copy on your computer or from a location other than an S3 bucket, you might encounter template size limitations. For more information about AWS CloudFormation quotas, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html" target="_blank" rel="noopener">AWS CloudFormation quotas</a>.</p>
 </div>
 </div>
 </div>
@@ -1675,14 +1645,14 @@ When you set <strong>Rollback on failure</strong> to <strong>Disabled</strong>, 
 <div class="ulist">
 <ul>
 <li>
-<p>If at any point in time you notice any weird permission errors in your account, try switching the user role in the top right corner of your AWS account.</p>
+<p>If you notice permission errors in your account, try switching the user role in the top-right corner of your AWS account.</p>
 </li>
 <li>
-<p>If QuickSight fails to execute queries due to S3 errors, then you will have to go to manage account in QuickSight and re add the <em>text_analysis_output</em> and <em>text_analysis_athena_results</em> buckets of your current deployment.</p>
+<p>If Amazon QuickSight fails to execute queries due to S3 errors, then navigate to the <strong>Manage account</strong> section in QuickSight and re-add the <strong>text_analysis_output</strong> and <strong>text_analysis_athena_results</strong> buckets of your current deployment.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Click <em>Manage QuickSight</em></p>
+<p>Choose <strong>Manage QuickSight</strong>.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/manage-quicksight.png" alt="Manage QuickSight" width="648" height="439">
@@ -1690,7 +1660,7 @@ When you set <strong>Rollback on failure</strong> to <strong>Disabled</strong>, 
 </div>
 </li>
 <li>
-<p>Click on <em>Security &amp; Permissions</em></p>
+<p>Select <strong>Security &amp; Permissions</strong>.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/security-permissions.png" alt="Security &amp; Permissions" width="648" height="439">
@@ -1698,7 +1668,7 @@ When you set <strong>Rollback on failure</strong> to <strong>Disabled</strong>, 
 </div>
 </li>
 <li>
-<p>Click on <em>Add or remove</em></p>
+<p>Choose <strong>Add or remove</strong>.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/add-or-remove.png" alt="Add or remove" width="648" height="439">
@@ -1706,7 +1676,7 @@ When you set <strong>Rollback on failure</strong> to <strong>Disabled</strong>, 
 </div>
 </li>
 <li>
-<p>Click on <em>Details</em>, under Amazon S3</p>
+<p>Under <strong>Amazon S3</strong>, choose <strong>Details</strong>.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/details-s3.png" alt="S3 Details" width="648" height="439">
@@ -1714,7 +1684,7 @@ When you set <strong>Rollback on failure</strong> to <strong>Disabled</strong>, 
 </div>
 </li>
 <li>
-<p>Click on <em>Select S3 buckets</em></p>
+<p>Choose <strong>Select S3 buckets</strong>.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/select-s3-buckets.png" alt="Select S3 buckets" width="648" height="439">
@@ -1722,7 +1692,7 @@ When you set <strong>Rollback on failure</strong> to <strong>Disabled</strong>, 
 </div>
 </li>
 <li>
-<p>Select buckets prefixed with <em>text-analysis-output</em> and <em>text-analysis-athena-results</em></p>
+<p>Select buckets that start with <strong>text-analysis-output</strong> and <strong>text-analysis-athena-results</strong>.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/prefixed-buckets.png" alt="Prefixed buckets" width="648" height="439">
@@ -1730,7 +1700,7 @@ When you set <strong>Rollback on failure</strong> to <strong>Disabled</strong>, 
 </div>
 </li>
 <li>
-<p>Click on <em>Update</em> to save your changes</p>
+<p>Choose <strong>Update</strong> to save your changes.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/update.png" alt="Save changes" width="648" height="439">
@@ -1743,7 +1713,7 @@ When you set <strong>Rollback on failure</strong> to <strong>Disabled</strong>, 
 </ul>
 </div>
 <div class="paragraph">
-<p>For more QuickSight help, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/getting-started.html" class="bare">https://docs.aws.amazon.com/quicksight/latest/user/getting-started.html</a></p>
+<p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/getting-started.html" target="_blank" rel="noopener">Getting Started with Data Analysis in Amazon QuickSight</a>.</p>
 </div>
 </div>
 </div>
@@ -1791,7 +1761,7 @@ and to share your customizations with others.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-02 13:45:04 UTC
+Last updated 2020-10-02 19:01:20 UTC
 </div>
 </div>
 </body>

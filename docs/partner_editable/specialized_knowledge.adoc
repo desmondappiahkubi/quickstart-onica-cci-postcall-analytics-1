@@ -1,16 +1,16 @@
 // Replace the content in <>
 // Describe or link to specific knowledge requirements; for example: “familiarity with basic concepts in the areas of networking, database operations, and data encryption” or “familiarity with <software>.”
 
-This Quick Start assumes familiarity with following AWS services.
+This Quick Start assumes familiarity with the following AWS services:
 
-* https://docs.aws.amazon.com/comprehend/index.html[Amazon Comprehend^] uses natural language processing (NLP) to extract insights about the content of the call transcripts. It develops insights by recognizing the entities, key phrases, language, sentiments in the transcript.
-* https://console.aws.amazon.com/transcribe/home[Amazon Transcribe^] is a fully managed automatic speech recognition (ASR) service that makes it easy for us to convert audio conversations to text.
-* https://docs.aws.amazon.com/glue/index.html[AWS Glue^] is a fully managed ETL (extract, transform, and load) service that makes it simple and cost-effective to categorize, clean, enrich, and move data reliably between various data stores. AWS Glue crawlers automatically infer database and table schema from the text analysis output file and stores the associated metadata in the AWS Glue Data Catalog.
-* https://docs.aws.amazon.com/athena/index.html[Amazon Athena^] is an interactive query service that makes it easy to analyze data directly in Amazon S3 using standard Structured Query Language (SQL). You can use Athena to run ad-hoc queries against the text analysis bucket.
-* https://docs.aws.amazon.com/dynamodb/index.html[Amazon DynamoDB^] is a fully managed NoSQL database service that is used in the solution to store the status of workload throughout.
+* https://docs.aws.amazon.com/comprehend/index.html[Amazon Comprehend^] uses natural language processing (NLP) to extract insights about the content of call transcripts. It develops insights by recognizing the entities, key phrases, language, and sentiments in the transcript.
+* https://console.aws.amazon.com/transcribe/home[Amazon Transcribe^] is a fully managed automatic speech recognition (ASR) service that makes it easy to convert audio conversations to text.
+* https://docs.aws.amazon.com/glue/index.html[AWS Glue^] is a fully managed ETL (extract, transform, and load) service for categorizing, cleaning, enriching, and moving data reliably between various data stores. AWS Glue crawlers automatically infer database and table schema from the text analysis output file and stores the associated metadata in the AWS Glue data catalog.
+* https://docs.aws.amazon.com/athena/index.html[Amazon Athena^] is an interactive query service for analyzing data directly in Amazon S3 using standard Structured Query Language (SQL). You can use Athena to run ad hoc queries against the text analysis bucket.
+* https://docs.aws.amazon.com/dynamodb/index.html[Amazon DynamoDB^] is a fully managed NoSQL database service for storing workload and job status.
 * https://docs.aws.amazon.com/lambda/index.html[AWS Lambda^] lets you run code without provisioning or managing servers.
-* https://aws.amazon.com/documentation/cloudformation/[AWS CloudFormation^] lets you create and provision AWS infrastructure deployments predictably and repeatedly. The entire solution’s infrastructure is built as code with CloudFormation.
-* https://docs.aws.amazon.com/quicksight/latest/user/welcome.html[Amazon QuickSight^] is a business analytics service you can use to build visualizations, perform one-time (ad hoc) analysis, and get business insights from your data. In this Quick Start, QuickSight provides an aggregated view of insights of call transcripts. You can use QuickSight to answer questions such as “What was the most negative statement uttered by a customer?”
+* https://aws.amazon.com/documentation/cloudformation/[AWS CloudFormation^] lets you create and provision AWS infrastructure deployments predictably and repeatedly. The entire infrastructure of the Quick Start is built as code with CloudFormation.
+* https://docs.aws.amazon.com/quicksight/latest/user/welcome.html[Amazon QuickSight^] is a business analytics service for building visualizations, performing one-time (ad hoc) analysis, and getting business insights from data. In this Quick Start, QuickSight provides an aggregated view of insights of call transcripts. You can use QuickSight to answer questions such as “What was the most negative statement uttered by a customer?”
 
 
 
