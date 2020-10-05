@@ -1,14 +1,14 @@
 ---
 AWSTemplateFormatVersion: "2010-09-09"
-Description: This template creates all the necessary resources to run audio voice analysis (qs-1r0eejdoc)
+Description: This template creates all the necessary resources to run audio voice analysis (qs-1r0eejdoc).
 
 Metadata:
   QuickStartDocumentation:
-    EntrypointName: "Launch CCI Post-call analytics"
+    EntrypointName: "Parameters for launching Call Center Intelligence Post-call Analytics"
   AWS::CloudFormation::Interface:
     ParameterGroups:
       - Label:
-          default: Amazon intelligent contact center post-call analytics configuration
+          default: Call Center Intelligence Post-call Analytics configuration
         Parameters:
           - CustomVocabularyName
           - UserPoolName
@@ -29,19 +29,19 @@ Metadata:
           - QSS3BucketRegion
     ParameterLabels:
       CustomVocabularyName:
-        default: Custom Vocabulary Name
+        default: Custom vocabulary name
       UserPoolName:
-        default: User Pool Name
+        default: User pool name
       UserPoolDomainName:
-        default: User Pool Domain Name
+        default: User pool domain name
       IdentityPoolName:
-        default: Identity Pool Name
+        default: Identity pool name
       UserPolicyName:
-        default: User Policy Name
+        default: User policy name
       QuickSightUserRoleName:
-        default: QuickSight User Role Name
+        default: QuickSight user role name
       AllowedOrigins:
-        default: Allowed Origins
+        default: Allowed origins
       NotificationEmail:
         default: Contact email
       AgentChannel:
@@ -55,7 +55,7 @@ Metadata:
       QSS3BucketName:
         default: Quick Start S3 bucket name
       QSS3BucketRegion:
-        default: Quick Start S3 bucket region
+        default: Quick Start S3 bucket Region
       QSS3KeyPrefix:
         default: Quick Start S3 key prefix
       
@@ -63,64 +63,64 @@ Parameters:
   AgentChannel:
     Type: Number
     Default: 0
-    Description: Left(0), or Right(1). Customer will be set to the other channel.
+    Description: Left(0) or Right(1). Customer is set to the other channel.
   AgentSpeakerLabel:
     Type: Number
     Default: 0
-    Description: First speaker(0) or last speaker(1). Customer will be set to the other label.
+    Description: First speaker(0) or last speaker(1). Customer is set to the other label.
   CustomVocabularyName: 
     Type: String
     Default: custom-vocabulary
-    Description: The name of the Amazon Transcribe Custom Vocabulary
+    Description: Name of the Amazon Transcribe custom vocabulary.
   UserPoolName:
     Type: String
     Default: MyUserPool
-    Description: Amzon Cognito User Pool name
+    Description: Amazon Cognito user pool name.
   UserPoolDomainName:
     Type: String
     Default: icc-domain
-    Description: Amazon Cognito User Pool Domain name. This value needs to be globally unique, otherwise the deployment will fail.
+    Description: Amazon Cognito user pool domain name. This value must be globally unique for a successful deployment. 
   IdentityPoolName:
     Type: String
     Default: MyIdentityPool
-    Description: Amazon Cognito Identiy Pool name
+    Description: Amazon Cognito identiy pool name.
   UserPolicyName:
     Type: String
     Default: MyUserPolicy
-    Description: Name of the user policy
+    Description: Name of the user policy.
   AllowedOrigins:
     Type: String
     Default: '*'
-    Description: Allowed origins for the Portal website
+    Description: Allowed origins for the portal website.
   DefaultRoot:
-    Description: The default path for the index document
+    Description: Default path for the index document.
     Type: String
     Default: index.html
   ErrorPage:
-    Description: The path of the error page for the website
+    Description: Path of the error page for the portal website.
     Type: String
     Default: error.html
   QuickSightUserRoleName:
     Type: String
     Default: QuickSightUserRole
-    Description: IAM Role name for the Amazon QuickSight user
+    Description: IAM role name for the Amazon QuickSight user.
   CallResolutionClassifierName:
     Type: String
     Default: call-resolution
-    Description: The name of the Call Resolution Classifier
+    Description: Name of the call resolution classifier.
   CallMotivationClassifierName:
     Type: String
     Default: call-motivation
-    Description: The name of the Call Motivation Classifier
+    Description: Name of the call motivation classifier.
   NotificationEmail:
     Type: String
     Default: 'test@example.com'
     AllowedPattern: '^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$'
-    Description: Email address used for the notifications
+    Description: Email address used for the notifications.
   QSS3BucketName:
     AllowedPattern: ^[0-9a-zA-Z]+([0-9a-zA-Z-]*[0-9a-zA-Z])*$
-    ConstraintDescription: Quick Start bucket name can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).
-    Description: S3 bucket name for the Quick Start assets. Quick Start bucket name can
+    ConstraintDescription: Quick Start S3 bucket name can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).
+    Description: S3 bucket name for the Quick Start assets. Quick Start S3 bucket name can
       include numbers, lowercase letters, uppercase letters, and hyphens (-). It
       cannot start or end with a hyphen (-).
     Type: String
@@ -128,9 +128,9 @@ Parameters:
   QSS3KeyPrefix:
     AllowedPattern: ^([0-9a-zA-Z-.]+/)*$
     ConstraintDescription: Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), dots (.) and forward slash (/). The prefix should end with a forward slash (/).
-    Description:       S3 key prefix for the Quick Start assets. Quick Start key prefix can
+    Description: S3 key prefix for the Quick Start assets. Quick Start key prefix can
       include numbers, lowercase letters, uppercase letters, hyphens (-), dots
-      (.) and forward slash (/) and it should end with a forward slash (/).
+      (.), and forward slash (/). Prefix must end with a forward slash (/).
     Type: String
     Default: quickstart-onica-cci-postcall-analytics/
   QSS3BucketRegion:
