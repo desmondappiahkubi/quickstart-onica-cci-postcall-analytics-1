@@ -802,7 +802,7 @@ a img {
 <ul class="sectlevel2">
 <li><a href="#_sign_in_to_your_aws_account">Sign in to your AWS account</a></li>
 <li><a href="#_launch_the_quick_start">Launch the Quick Start</a></li>
-<li><a href="#_launch_cci_post_call_analytics">Launch CCI Post-call analytics</a></li>
+<li><a href="#_parameters_for_launching_call_center_intelligence_post_call_analytics">Parameters for launching Call Center Intelligence Post-call Analytics</a></li>
 </ul>
 </li>
 <li><a href="#_test_the_deployment">Test the deployment</a></li>
@@ -1291,9 +1291,9 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </div>
 </div>
 <div class="sect2">
-<h3 id="_launch_cci_post_call_analytics">Launch CCI Post-call analytics</h3>
+<h3 id="_parameters_for_launching_call_center_intelligence_post_call_analytics">Parameters for launching Call Center Intelligence Post-call Analytics</h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. Amazon intelligent contact center post-call analytics configuration</caption>
+<caption class="title">Table 1. Call Center Intelligence Post-call Analytics configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1308,70 +1308,70 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Custom Vocabulary Name
+<td class="tableblock halign-left valign-top"><p class="tableblock">Custom vocabulary name
 (<code>CustomVocabularyName</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>custom-vocabulary</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the Amazon Transcribe Custom Vocabulary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the Amazon Transcribe custom vocabulary.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">User Pool Name
+<td class="tableblock halign-left valign-top"><p class="tableblock">User pool name
 (<code>UserPoolName</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>MyUserPool</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Amzon Cognito User Pool name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon Cognito user pool name.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">User Pool Domain Name
+<td class="tableblock halign-left valign-top"><p class="tableblock">User pool domain name
 (<code>UserPoolDomainName</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>icc-domain</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon Cognito User Pool Domain name. This value needs to be globally unique, otherwise the deployment will fail.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon Cognito user pool domain name. This value must be globally unique for a successful deployment.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Identity Pool Name
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identity pool name
 (<code>IdentityPoolName</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>MyIdentityPool</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon Cognito Identiy Pool name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon Cognito identiy pool name.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">User Policy Name
+<td class="tableblock halign-left valign-top"><p class="tableblock">User policy name
 (<code>UserPolicyName</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>MyUserPolicy</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the user policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the user policy.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allowed Origins
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allowed origins
 (<code>AllowedOrigins</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allowed origins for the Portal website</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allowed origins for the portal website.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Contact email
 (<code>NotificationEmail</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>test@example.com</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Email address used for the notifications</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Email address used for the notifications.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Agent channel for multi-channel audio
 (<code>AgentChannel</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Left(0), or Right(1). Customer will be set to the other channel.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Left(0) or Right(1). Customer is set to the other channel.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Agent speaker label for single-channel audio
 (<code>AgentSpeakerLabel</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">First speaker(0) or last speaker(1). Customer will be set to the other label.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">First speaker(0) or last speaker(1). Customer is set to the other label.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Display name of the call resolution classifier in Amazon Comprehend
 (<code>CallResolutionClassifierName</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>call-resolution</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the Call Resolution Classifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the call resolution classifier.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Display name of the call motivation classifier in Amazon Comprehend
 (<code>CallMotivationClassifierName</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>call-motivation</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the Call Motivation Classifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the call motivation classifier.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1394,16 +1394,16 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 <td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket name
 (<code>QSS3BucketName</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>aws-quickstart</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S3 bucket name for the Quick Start assets. Quick Start bucket name can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 bucket name for the Quick Start assets. Quick Start S3 bucket name can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 key prefix
 (<code>QSS3KeyPrefix</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>quickstart-onica-cci-postcall-analytics/</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S3 key prefix for the Quick Start assets. Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), dots (.) and forward slash (/) and it should end with a forward slash (/).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 key prefix for the Quick Start assets. Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), dots (.), and forward slash (/). Prefix must end with a forward slash (/).</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket region
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket Region
 (<code>QSS3BucketRegion</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>us-east-1</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The AWS Region where the Quick Start S3 bucket (QSS3BucketName) is hosted. When using your own bucket, you must specify this value.</p></td>
@@ -1758,7 +1758,7 @@ and to share your customizations with others.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-02 20:06:15 UTC
+Last updated 2020-10-05 15:20:06 UTC
 </div>
 </div>
 </body>

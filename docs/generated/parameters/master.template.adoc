@@ -1,25 +1,25 @@
 
-.Amazon intelligent contact center post-call analytics configuration
+.Call Center Intelligence Post-call Analytics configuration
 [width="100%",cols="16%,11%,73%",options="header",]
 |===
-|Parameter label (name) |Default value|Description|Custom Vocabulary Name
-(`CustomVocabularyName`)|`custom-vocabulary`|The name of the Amazon Transcribe Custom Vocabulary|User Pool Name
-(`UserPoolName`)|`MyUserPool`|Amzon Cognito User Pool name|User Pool Domain Name
-(`UserPoolDomainName`)|`icc-domain`|Amazon Cognito User Pool Domain name. This value needs to be globally unique, otherwise the deployment will fail.|Identity Pool Name
-(`IdentityPoolName`)|`MyIdentityPool`|Amazon Cognito Identiy Pool name|User Policy Name
-(`UserPolicyName`)|`MyUserPolicy`|Name of the user policy|Allowed Origins
-(`AllowedOrigins`)|`*`|Allowed origins for the Portal website|Contact email
-(`NotificationEmail`)|`test@example.com`|Email address used for the notifications|Agent channel for multi-channel audio
-(`AgentChannel`)|`0`|Left(0), or Right(1). Customer will be set to the other channel.|Agent speaker label for single-channel audio
-(`AgentSpeakerLabel`)|`0`|First speaker(0) or last speaker(1). Customer will be set to the other label.|Display name of the call resolution classifier in Amazon Comprehend
-(`CallResolutionClassifierName`)|`call-resolution`|The name of the Call Resolution Classifier|Display name of the call motivation classifier in Amazon Comprehend
-(`CallMotivationClassifierName`)|`call-motivation`|The name of the Call Motivation Classifier
+|Parameter label (name) |Default value|Description|Custom vocabulary name
+(`CustomVocabularyName`)|`custom-vocabulary`|Name of the Amazon Transcribe custom vocabulary.|User pool name
+(`UserPoolName`)|`MyUserPool`|Amazon Cognito user pool name.|User pool domain name
+(`UserPoolDomainName`)|`icc-domain`|Amazon Cognito user pool domain name. This value must be globally unique for a successful deployment.|Identity pool name
+(`IdentityPoolName`)|`MyIdentityPool`|Amazon Cognito identiy pool name.|User policy name
+(`UserPolicyName`)|`MyUserPolicy`|Name of the user policy.|Allowed origins
+(`AllowedOrigins`)|`*`|Allowed origins for the portal website.|Contact email
+(`NotificationEmail`)|`test@example.com`|Email address used for the notifications.|Agent channel for multi-channel audio
+(`AgentChannel`)|`0`|Left(0) or Right(1). Customer is set to the other channel.|Agent speaker label for single-channel audio
+(`AgentSpeakerLabel`)|`0`|First speaker(0) or last speaker(1). Customer is set to the other label.|Display name of the call resolution classifier in Amazon Comprehend
+(`CallResolutionClassifierName`)|`call-resolution`|Name of the call resolution classifier.|Display name of the call motivation classifier in Amazon Comprehend
+(`CallMotivationClassifierName`)|`call-motivation`|Name of the call motivation classifier.
 |===
 .AWS Quick Start configuration
 [width="100%",cols="16%,11%,73%",options="header",]
 |===
 |Parameter label (name) |Default value|Description|Quick Start S3 bucket name
-(`QSS3BucketName`)|`aws-quickstart`|S3 bucket name for the Quick Start assets. Quick Start bucket name can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).|Quick Start S3 key prefix
-(`QSS3KeyPrefix`)|`quickstart-onica-cci-postcall-analytics/`|S3 key prefix for the Quick Start assets. Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), dots (.) and forward slash (/) and it should end with a forward slash (/).|Quick Start S3 bucket region
+(`QSS3BucketName`)|`aws-quickstart`|S3 bucket name for the Quick Start assets. Quick Start S3 bucket name can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).|Quick Start S3 key prefix
+(`QSS3KeyPrefix`)|`quickstart-onica-cci-postcall-analytics/`|S3 key prefix for the Quick Start assets. Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), dots (.), and forward slash (/). Prefix must end with a forward slash (/).|Quick Start S3 bucket Region
 (`QSS3BucketRegion`)|`us-east-1`|The AWS Region where the Quick Start S3 bucket (QSS3BucketName) is hosted. When using your own bucket, you must specify this value.
 |===
