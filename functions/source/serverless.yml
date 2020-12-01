@@ -36,12 +36,18 @@ functions:
           Ref: CustomVocabularyName
       TABLE_NAME:
           Ref: StatusTable
+      MODE_OF_OPERATION: 
+        Ref: ModeOfOperation
+      AUDIO_FILE_PATH:
+        Ref: AudioFileJsonPath
+      METADATA_AUDIO_SUFFIX:
+        Ref: MetadataOrAudioSuffix
     events:
-      - s3:
-          existing: true
-          bucket:
-            Ref: TranscriptionAudioFiles
-          event: s3:ObjectCreated:*
+      - sqs:
+          arn:
+            Fn::GetAtt:
+              - AudioFilesQueue
+              - Arn
   splitTranscript:
     handler: analysis/splitTranscript.handler
     role: TranscriptSplitterRole
@@ -390,6 +396,15 @@ resources:
     QSS3KeyPrefix:
       Type: String
       Default: quickstart-onica-post-call-analytics/
+    ModeOfOperation:
+      Type: String
+      Default: 'AUDIO'
+    MetadataOrAudioSuffix:
+      Type: String
+      Default: ''
+    AudioFileJsonPath:
+      Type: String
+      Default: ''
 
   externalResourceFiles:
     - ${file(../../templates/roles.template.yaml)}

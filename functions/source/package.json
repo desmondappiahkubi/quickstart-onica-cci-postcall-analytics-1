@@ -19,6 +19,7 @@
     "@music-metadata/s3": "^0.6.0",
     "axios": "^0.19.2",
     "file-type": "^14.1.2",
+    "jsonpath": "^1.0.2",
     "jsonwebtoken": "^8.5.1",
     "middy": "^0.34.0",
     "moment": "^2.24.0",

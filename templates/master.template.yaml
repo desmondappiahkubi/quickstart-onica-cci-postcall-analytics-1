@@ -58,6 +58,12 @@ Metadata:
         default: Quick Start S3 bucket Region
       QSS3KeyPrefix:
         default: Quick Start S3 key prefix
+      ModeOfOperation:
+        default: Audio File or Metadata
+      MetadataOrAudioSuffix:
+        default: Suffix for target file
+      AudioFileJsonPath: 
+        default: path to audio file if in metadata mode
       
 Parameters:
   AgentChannel:
@@ -137,6 +143,18 @@ Parameters:
     Default: 'us-east-1'
     Description: The AWS Region where the Quick Start S3 bucket (QSS3BucketName) is hosted. When using your own bucket, you must specify this value.
     Type: String
+  ModeOfOperation:
+    Type: String
+    Description: The Mode of Operation( AUDIO or METADATA)
+    Default: 'AUDIO'
+  MetadataOrAudioSuffix:
+    Type: String
+    Description: The suffix for the target metadata or audio file
+    Default: ''
+  AudioFileJsonPath:
+    Type: String
+    Description: Json path to audio file in metadata if in metadata mode
+    Default: ''
 
 Conditions:
   UsingDefaultBucket: !Equals [!Ref QSS3BucketName, 'aws-quickstart']
@@ -180,6 +198,9 @@ Resources:
         NotificationEmail: !Ref NotificationEmail
         AgentChannel: !Ref AgentChannel
         AgentSpeakerLabel: !Ref AgentSpeakerLabel
+        ModeOfOperation: !Ref ModeOfOperation
+        MetadataOrAudioSuffix: !Ref MetadataOrAudioSuffix
+        AudioFileJsonPath: !Ref AudioFileJsonPath
 
 Outputs:
   CustomVocabularyName:

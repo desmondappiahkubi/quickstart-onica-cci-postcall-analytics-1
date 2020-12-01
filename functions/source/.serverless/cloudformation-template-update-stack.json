@@ -59,79 +59,79 @@
     "TranscribeJobProducerLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-icc-prod-transcribeJobProducer"
+        "LogGroupName": "/aws/lambda/aws-icc-dev-transcribeJobProducer"
       }
     },
     "SplitTranscriptLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-icc-prod-splitTranscript"
+        "LogGroupName": "/aws/lambda/aws-icc-dev-splitTranscript"
       }
     },
     "AnalyseTextLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-icc-prod-analyseText"
+        "LogGroupName": "/aws/lambda/aws-icc-dev-analyseText"
       }
     },
     "GetTranscriptsLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-icc-prod-getTranscripts"
+        "LogGroupName": "/aws/lambda/aws-icc-dev-getTranscripts"
       }
     },
     "GetAudioLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-icc-prod-getAudio"
+        "LogGroupName": "/aws/lambda/aws-icc-dev-getAudio"
       }
     },
     "GetSentimentLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-icc-prod-getSentiment"
+        "LogGroupName": "/aws/lambda/aws-icc-dev-getSentiment"
       }
     },
     "GetPresignedUrlLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-icc-prod-getPresignedUrl"
+        "LogGroupName": "/aws/lambda/aws-icc-dev-getPresignedUrl"
       }
     },
     "UpdateStatusLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-icc-prod-updateStatus"
+        "LogGroupName": "/aws/lambda/aws-icc-dev-updateStatus"
       }
     },
     "QuickSightFederationFunctionLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-icc-prod-quickSightFederationFunction"
+        "LogGroupName": "/aws/lambda/aws-icc-dev-quickSightFederationFunction"
       }
     },
     "CreateCallResolutionClassiferLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-icc-prod-createCallResolutionClassifer"
+        "LogGroupName": "/aws/lambda/aws-icc-dev-createCallResolutionClassifer"
       }
     },
     "CreateCallMotivationClassifierLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-icc-prod-createCallMotivationClassifier"
+        "LogGroupName": "/aws/lambda/aws-icc-dev-createCallMotivationClassifier"
       }
     },
     "CreateCallResolutionEndpointLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-icc-prod-createCallResolutionEndpoint"
+        "LogGroupName": "/aws/lambda/aws-icc-dev-createCallResolutionEndpoint"
       }
     },
     "CreateCallMotivationEndpointLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-icc-prod-createCallMotivationEndpoint"
+        "LogGroupName": "/aws/lambda/aws-icc-dev-createCallMotivationEndpoint"
       }
     },
     "TranscribeJobProducerLambdaFunction": {
@@ -141,9 +141,9 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-icc/prod/1596656717357-2020-08-05T19:45:17.357Z/aws-icc.zip"
+          "S3Key": "serverless/aws-icc/dev/1606792717163-2020-12-01T03:18:37.163Z/aws-icc.zip"
         },
-        "FunctionName": "aws-icc-prod-transcribeJobProducer",
+        "FunctionName": "aws-icc-dev-transcribeJobProducer",
         "Handler": "transcribe/transcribeHandler.handler",
         "MemorySize": 1024,
         "Role": {
@@ -165,6 +165,15 @@
             },
             "TABLE_NAME": {
               "Ref": "StatusTable"
+            },
+            "MODE_OF_OPERATION": {
+              "Ref": "ModeOfOperation"
+            },
+            "AUDIO_FILE_PATH": {
+              "Ref": "AudioFileJsonPath"
+            },
+            "METADATA_AUDIO_SUFFIX": {
+              "Ref": "MetadataOrAudioSuffix"
             }
           }
         }
@@ -174,14 +183,14 @@
         "TranscribeS3DynamoDBRole"
       ]
     },
-    "TranscribeJobProducerLambdaVersionswBqveyMVNTuOCipMjIjOVpLJHRZNmVAbB7GLvBtE": {
+    "TranscribeJobProducerLambdaVersionZu4IG8iyGuvTSvQW5udrC1LrKI7lHBaJ9buorod4": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "TranscribeJobProducerLambdaFunction"
         },
-        "CodeSha256": "at8WWXA4oKr7JJmdt4UPPUgdFLe0Wx4YPB0Cq1T/Otw="
+        "CodeSha256": "ME/ze/cLMlhK+RCuGkGvQS6DldQdlADxhZ33o6ebA8I="
       }
     },
     "SplitTranscriptLambdaFunction": {
@@ -191,9 +200,9 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-icc/prod/1596656717357-2020-08-05T19:45:17.357Z/aws-icc.zip"
+          "S3Key": "serverless/aws-icc/dev/1606792717163-2020-12-01T03:18:37.163Z/aws-icc.zip"
         },
-        "FunctionName": "aws-icc-prod-splitTranscript",
+        "FunctionName": "aws-icc-dev-splitTranscript",
         "Handler": "analysis/splitTranscript.handler",
         "MemorySize": 1024,
         "Role": {
@@ -227,14 +236,14 @@
         "TranscriptSplitterRole"
       ]
     },
-    "SplitTranscriptLambdaVersionXAGWafJiFscz2UclaxnMieEcLEHxB8UDU6KkyfSRDQ4": {
+    "SplitTranscriptLambdaVersionFknrhKQrgmNYPfqzP3WFgskPMhkbaOSPQJEXVTCCPr0": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "SplitTranscriptLambdaFunction"
         },
-        "CodeSha256": "at8WWXA4oKr7JJmdt4UPPUgdFLe0Wx4YPB0Cq1T/Otw="
+        "CodeSha256": "ME/ze/cLMlhK+RCuGkGvQS6DldQdlADxhZ33o6ebA8I="
       }
     },
     "AnalyseTextLambdaFunction": {
@@ -244,9 +253,9 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-icc/prod/1596656717357-2020-08-05T19:45:17.357Z/aws-icc.zip"
+          "S3Key": "serverless/aws-icc/dev/1606792717163-2020-12-01T03:18:37.163Z/aws-icc.zip"
         },
-        "FunctionName": "aws-icc-prod-analyseText",
+        "FunctionName": "aws-icc-dev-analyseText",
         "Handler": "analysis/analyseTranscript.handler",
         "MemorySize": 1024,
         "Role": {
@@ -313,14 +322,14 @@
         "ComprehendFullAccessRole"
       ]
     },
-    "AnalyseTextLambdaVersionwRDBW58HQZshCZPG1s683MBLo9ThRFswwQM0W4btBI": {
+    "AnalyseTextLambdaVersiontmmhwbwoFtJn5drrsdaWxVwZGndYwWcoujIjIrHlc": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "AnalyseTextLambdaFunction"
         },
-        "CodeSha256": "at8WWXA4oKr7JJmdt4UPPUgdFLe0Wx4YPB0Cq1T/Otw="
+        "CodeSha256": "ME/ze/cLMlhK+RCuGkGvQS6DldQdlADxhZ33o6ebA8I="
       }
     },
     "GetTranscriptsLambdaFunction": {
@@ -330,9 +339,9 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-icc/prod/1596656717357-2020-08-05T19:45:17.357Z/aws-icc.zip"
+          "S3Key": "serverless/aws-icc/dev/1606792717163-2020-12-01T03:18:37.163Z/aws-icc.zip"
         },
-        "FunctionName": "aws-icc-prod-getTranscripts",
+        "FunctionName": "aws-icc-dev-getTranscripts",
         "Handler": "api/getTranscripts.handler",
         "MemorySize": 1024,
         "Role": {
@@ -363,14 +372,14 @@
         "ScanTranscriptsRole"
       ]
     },
-    "GetTranscriptsLambdaVersionWhSzMAiQoRUWVz3XAHOub7MspgvdGzvwuLFT0WZBhA": {
+    "GetTranscriptsLambdaVersionbl2XPClw0XGn8iC98R2pkO6cuNAxkgmlPN2DP4idI": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetTranscriptsLambdaFunction"
         },
-        "CodeSha256": "at8WWXA4oKr7JJmdt4UPPUgdFLe0Wx4YPB0Cq1T/Otw="
+        "CodeSha256": "ME/ze/cLMlhK+RCuGkGvQS6DldQdlADxhZ33o6ebA8I="
       }
     },
     "GetAudioLambdaFunction": {
@@ -380,9 +389,9 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-icc/prod/1596656717357-2020-08-05T19:45:17.357Z/aws-icc.zip"
+          "S3Key": "serverless/aws-icc/dev/1606792717163-2020-12-01T03:18:37.163Z/aws-icc.zip"
         },
-        "FunctionName": "aws-icc-prod-getAudio",
+        "FunctionName": "aws-icc-dev-getAudio",
         "Handler": "api/getAudio.handler",
         "MemorySize": 1024,
         "Role": {
@@ -401,7 +410,7 @@
                 "",
                 [
                   "transcription-audio-files",
-                  "-prod-",
+                  "-dev-",
                   {
                     "Ref": "ServicePrefix"
                   }
@@ -416,14 +425,14 @@
         "TranscriptionAudioFilesRole"
       ]
     },
-    "GetAudioLambdaVersionixE09GCBLxIekgVlBCYgueME7Mssr8zmxrXphTQlbs": {
+    "GetAudioLambdaVersionL6CYYiyfefvipPC2aCmwFYMHJ5fZjNjJTVzNLeGNI": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetAudioLambdaFunction"
         },
-        "CodeSha256": "at8WWXA4oKr7JJmdt4UPPUgdFLe0Wx4YPB0Cq1T/Otw="
+        "CodeSha256": "ME/ze/cLMlhK+RCuGkGvQS6DldQdlADxhZ33o6ebA8I="
       }
     },
     "GetSentimentLambdaFunction": {
@@ -433,9 +442,9 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-icc/prod/1596656717357-2020-08-05T19:45:17.357Z/aws-icc.zip"
+          "S3Key": "serverless/aws-icc/dev/1606792717163-2020-12-01T03:18:37.163Z/aws-icc.zip"
         },
-        "FunctionName": "aws-icc-prod-getSentiment",
+        "FunctionName": "aws-icc-dev-getSentiment",
         "Handler": "api/getSentiments.handler",
         "MemorySize": 1024,
         "Role": {
@@ -454,7 +463,7 @@
                 "",
                 [
                   "text-analysis-output",
-                  "-prod-",
+                  "-dev-",
                   {
                     "Ref": "ServicePrefix"
                   }
@@ -469,14 +478,14 @@
         "GetSentimentsRole"
       ]
     },
-    "GetSentimentLambdaVersionlAm4SlFVBkJG282a3t94ZeFqLU546dKnIgd3mcMcwXU": {
+    "GetSentimentLambdaVersionBZZfkaY3t34NxmyXFTWkXoYnGuf3x8A4X9P06xU": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetSentimentLambdaFunction"
         },
-        "CodeSha256": "at8WWXA4oKr7JJmdt4UPPUgdFLe0Wx4YPB0Cq1T/Otw="
+        "CodeSha256": "ME/ze/cLMlhK+RCuGkGvQS6DldQdlADxhZ33o6ebA8I="
       }
     },
     "GetPresignedUrlLambdaFunction": {
@@ -486,9 +495,9 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-icc/prod/1596656717357-2020-08-05T19:45:17.357Z/aws-icc.zip"
+          "S3Key": "serverless/aws-icc/dev/1606792717163-2020-12-01T03:18:37.163Z/aws-icc.zip"
         },
-        "FunctionName": "aws-icc-prod-getPresignedUrl",
+        "FunctionName": "aws-icc-dev-getPresignedUrl",
         "Handler": "api/getPresignedUrl.handler",
         "MemorySize": 1024,
         "Role": {
@@ -507,7 +516,7 @@
                 "",
                 [
                   "transcription-audio-files",
-                  "-prod-",
+                  "-dev-",
                   {
                     "Ref": "ServicePrefix"
                   }
@@ -534,14 +543,14 @@
         "TranscriptionAudioFilesRole"
       ]
     },
-    "GetPresignedUrlLambdaVersionZCKVKZv7tZgnWkK8DDps3YYVDDPjU8e1W9ZJwVT18": {
+    "GetPresignedUrlLambdaVersionrj0hmKTWX3dLgCWKdE9eQEykx44J70wCTYbysXMo": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetPresignedUrlLambdaFunction"
         },
-        "CodeSha256": "at8WWXA4oKr7JJmdt4UPPUgdFLe0Wx4YPB0Cq1T/Otw="
+        "CodeSha256": "ME/ze/cLMlhK+RCuGkGvQS6DldQdlADxhZ33o6ebA8I="
       }
     },
     "UpdateStatusLambdaFunction": {
@@ -551,9 +560,9 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-icc/prod/1596656717357-2020-08-05T19:45:17.357Z/aws-icc.zip"
+          "S3Key": "serverless/aws-icc/dev/1606792717163-2020-12-01T03:18:37.163Z/aws-icc.zip"
         },
-        "FunctionName": "aws-icc-prod-updateStatus",
+        "FunctionName": "aws-icc-dev-updateStatus",
         "Handler": "api/updateStatus.handler",
         "MemorySize": 1024,
         "Role": {
@@ -590,14 +599,14 @@
         "DynamoBatchWriteRole"
       ]
     },
-    "UpdateStatusLambdaVersionk5XaoCmLOOrxwc8Zi2T3DrOfHwXEjTfKO9UUBGqPBPo": {
+    "UpdateStatusLambdaVersionfuecvlGY3xyXMbAnIhUd7am4UPAAHKftgn5JZK2qiM": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "UpdateStatusLambdaFunction"
         },
-        "CodeSha256": "at8WWXA4oKr7JJmdt4UPPUgdFLe0Wx4YPB0Cq1T/Otw="
+        "CodeSha256": "ME/ze/cLMlhK+RCuGkGvQS6DldQdlADxhZ33o6ebA8I="
       }
     },
     "QuickSightFederationFunctionLambdaFunction": {
@@ -607,9 +616,9 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-icc/prod/1596656717357-2020-08-05T19:45:17.357Z/aws-icc.zip"
+          "S3Key": "serverless/aws-icc/dev/1606792717163-2020-12-01T03:18:37.163Z/aws-icc.zip"
         },
-        "FunctionName": "aws-icc-prod-quickSightFederationFunction",
+        "FunctionName": "aws-icc-dev-quickSightFederationFunction",
         "Handler": "api/quicksightAuth.handler",
         "MemorySize": 1024,
         "Role": {
@@ -631,14 +640,14 @@
         "LambdaBasicExecutionRole"
       ]
     },
-    "QuickSightFederationFunctionLambdaVersionEnwx6MUxQDyI4sqkH4rPfOPKlWCNLwzE5sqGIEEgUFI": {
+    "QuickSightFederationFunctionLambdaVersionU50ZLVlE9lDsCLZe1N5xhsrdx2tuK2uqwP91OlUAW4": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "QuickSightFederationFunctionLambdaFunction"
         },
-        "CodeSha256": "at8WWXA4oKr7JJmdt4UPPUgdFLe0Wx4YPB0Cq1T/Otw="
+        "CodeSha256": "ME/ze/cLMlhK+RCuGkGvQS6DldQdlADxhZ33o6ebA8I="
       }
     },
     "CreateCallResolutionClassiferLambdaFunction": {
@@ -648,9 +657,9 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-icc/prod/1596656717357-2020-08-05T19:45:17.357Z/aws-icc.zip"
+          "S3Key": "serverless/aws-icc/dev/1606792717163-2020-12-01T03:18:37.163Z/aws-icc.zip"
         },
-        "FunctionName": "aws-icc-prod-createCallResolutionClassifer",
+        "FunctionName": "aws-icc-dev-createCallResolutionClassifer",
         "Handler": "classifiers/callResolutionClassifier.handler",
         "MemorySize": 1024,
         "Role": {
@@ -678,7 +687,7 @@
                 "",
                 [
                   "comprehend-call-resolution",
-                  "-prod-",
+                  "-dev-",
                   {
                     "Ref": "ServicePrefix"
                   }
@@ -693,14 +702,14 @@
         "ComprehendFullAccessRole"
       ]
     },
-    "CreateCallResolutionClassiferLambdaVersioneKkdukzpkw18BTxRyxoc3N34aNS6POOTKUYgTKwF0": {
+    "CreateCallResolutionClassiferLambdaVersionSiLPY9yYIYZhUV7WN2jOxdD43aZaLOFpHH5Ysspwuk": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateCallResolutionClassiferLambdaFunction"
         },
-        "CodeSha256": "at8WWXA4oKr7JJmdt4UPPUgdFLe0Wx4YPB0Cq1T/Otw="
+        "CodeSha256": "ME/ze/cLMlhK+RCuGkGvQS6DldQdlADxhZ33o6ebA8I="
       }
     },
     "CreateCallMotivationClassifierLambdaFunction": {
@@ -710,9 +719,9 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-icc/prod/1596656717357-2020-08-05T19:45:17.357Z/aws-icc.zip"
+          "S3Key": "serverless/aws-icc/dev/1606792717163-2020-12-01T03:18:37.163Z/aws-icc.zip"
         },
-        "FunctionName": "aws-icc-prod-createCallMotivationClassifier",
+        "FunctionName": "aws-icc-dev-createCallMotivationClassifier",
         "Handler": "classifiers/createMotivationClassifier.handler",
         "MemorySize": 1024,
         "Role": {
@@ -740,7 +749,7 @@
                 "",
                 [
                   "comprehend-call-motivation",
-                  "-prod-",
+                  "-dev-",
                   {
                     "Ref": "ServicePrefix"
                   }
@@ -755,14 +764,14 @@
         "ComprehendFullAccessRole"
       ]
     },
-    "CreateCallMotivationClassifierLambdaVersionmdyUWGZvjevcLutd2StHiZx0ThLi8GMoblf24jLniY": {
+    "CreateCallMotivationClassifierLambdaVersionTVYuGxemxkjDgSXTUseIwYyfM0pHcmykp8EH9qvoM": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateCallMotivationClassifierLambdaFunction"
         },
-        "CodeSha256": "at8WWXA4oKr7JJmdt4UPPUgdFLe0Wx4YPB0Cq1T/Otw="
+        "CodeSha256": "ME/ze/cLMlhK+RCuGkGvQS6DldQdlADxhZ33o6ebA8I="
       }
     },
     "CreateCallResolutionEndpointLambdaFunction": {
@@ -772,9 +781,9 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-icc/prod/1596656717357-2020-08-05T19:45:17.357Z/aws-icc.zip"
+          "S3Key": "serverless/aws-icc/dev/1606792717163-2020-12-01T03:18:37.163Z/aws-icc.zip"
         },
-        "FunctionName": "aws-icc-prod-createCallResolutionEndpoint",
+        "FunctionName": "aws-icc-dev-createCallResolutionEndpoint",
         "Handler": "endpoints/callResolutionEnpoint.handler",
         "MemorySize": 1024,
         "Role": {
@@ -816,14 +825,14 @@
         "ComprehendFullAccessRole"
       ]
     },
-    "CreateCallResolutionEndpointLambdaVersionKegdf5ilCKLEqDfPrXVxHBDvLjfkR4UyX4mJKUQoS0": {
+    "CreateCallResolutionEndpointLambdaVersionMbrnG7JC6IYxyYH7BEuIROPO2l0iNduLpfHHLiGhrU": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateCallResolutionEndpointLambdaFunction"
         },
-        "CodeSha256": "at8WWXA4oKr7JJmdt4UPPUgdFLe0Wx4YPB0Cq1T/Otw="
+        "CodeSha256": "ME/ze/cLMlhK+RCuGkGvQS6DldQdlADxhZ33o6ebA8I="
       }
     },
     "CreateCallMotivationEndpointLambdaFunction": {
@@ -833,9 +842,9 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-icc/prod/1596656717357-2020-08-05T19:45:17.357Z/aws-icc.zip"
+          "S3Key": "serverless/aws-icc/dev/1606792717163-2020-12-01T03:18:37.163Z/aws-icc.zip"
         },
-        "FunctionName": "aws-icc-prod-createCallMotivationEndpoint",
+        "FunctionName": "aws-icc-dev-createCallMotivationEndpoint",
         "Handler": "endpoints/createMotivationEndpoint.handler",
         "MemorySize": 1024,
         "Role": {
@@ -877,14 +886,14 @@
         "ComprehendFullAccessRole"
       ]
     },
-    "CreateCallMotivationEndpointLambdaVersionJcgomsusL2muU9iJ7NWAvMCEXg4SThgT5ifamAUY": {
+    "CreateCallMotivationEndpointLambdaVersionhAt7KooJTV7frbb48l1BUkDIGtUECe1tGyiqB36msA": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateCallMotivationEndpointLambdaFunction"
         },
-        "CodeSha256": "at8WWXA4oKr7JJmdt4UPPUgdFLe0Wx4YPB0Cq1T/Otw="
+        "CodeSha256": "ME/ze/cLMlhK+RCuGkGvQS6DldQdlADxhZ33o6ebA8I="
       }
     },
     "CreateCallResolutionEndpointEventsRuleSchedule1": {
@@ -961,11 +970,11 @@
         }
       }
     },
-    "TranscribeJobProducerCustomS31": {
+    "SplitTranscriptCustomS31": {
       "Type": "Custom::S3",
       "Version": 1,
       "DependsOn": [
-        "TranscribeJobProducerLambdaFunction",
+        "SplitTranscriptLambdaFunction",
         "CustomDashresourceDashexistingDashs3LambdaFunction"
       ],
       "Properties": {
@@ -975,34 +984,7 @@
             "Arn"
           ]
         },
-        "FunctionName": "aws-icc-prod-transcribeJobProducer",
-        "BucketName": {
-          "Ref": "TranscriptionAudioFiles"
-        },
-        "BucketConfigs": [
-          {
-            "Event": "s3:ObjectCreated:*",
-            "Rules": []
-          }
-        ]
-      }
-    },
-    "SplitTranscriptCustomS31": {
-      "Type": "Custom::S3",
-      "Version": 1,
-      "DependsOn": [
-        "SplitTranscriptLambdaFunction",
-        "CustomDashresourceDashexistingDashs3LambdaFunction",
-        "TranscribeJobProducerCustomS31"
-      ],
-      "Properties": {
-        "ServiceToken": {
-          "Fn::GetAtt": [
-            "CustomDashresourceDashexistingDashs3LambdaFunction",
-            "Arn"
-          ]
-        },
-        "FunctionName": "aws-icc-prod-splitTranscript",
+        "FunctionName": "aws-icc-dev-splitTranscript",
         "BucketName": {
           "Ref": "TranscriptionOutput"
         },
@@ -1029,7 +1011,7 @@
             "Arn"
           ]
         },
-        "FunctionName": "aws-icc-prod-analyseText",
+        "FunctionName": "aws-icc-dev-analyseText",
         "BucketName": {
           "Ref": "SplitTranscriptOutput"
         },
@@ -1056,7 +1038,7 @@
             "Arn"
           ]
         },
-        "FunctionName": "aws-icc-prod-createCallResolutionClassifer",
+        "FunctionName": "aws-icc-dev-createCallResolutionClassifer",
         "BucketName": {
           "Ref": "ComprehendCallResolutionBucket"
         },
@@ -1083,7 +1065,7 @@
             "Arn"
           ]
         },
-        "FunctionName": "aws-icc-prod-createCallMotivationClassifier",
+        "FunctionName": "aws-icc-dev-createCallMotivationClassifier",
         "BucketName": {
           "Ref": "ComprehendCallMotivationBucket"
         },
@@ -1120,7 +1102,7 @@
               "Fn::Join": [
                 "-",
                 [
-                  "prod",
+                  "dev",
                   "aws-icc",
                   "custom-resources-lambda"
                 ]
@@ -1129,57 +1111,6 @@
             "PolicyDocument": {
               "Version": "2012-10-17",
               "Statement": [
-                {
-                  "Effect": "Allow",
-                  "Resource": {
-                    "Fn::Join": [
-                      ":",
-                      [
-                        "arn",
-                        {
-                          "Ref": "AWS::Partition"
-                        },
-                        "s3",
-                        "",
-                        "",
-                        {
-                          "Ref": "TranscriptionAudioFiles"
-                        }
-                      ]
-                    ]
-                  },
-                  "Action": [
-                    "s3:PutBucketNotification",
-                    "s3:GetBucketNotification"
-                  ]
-                },
-                {
-                  "Effect": "Allow",
-                  "Resource": {
-                    "Fn::Join": [
-                      ":",
-                      [
-                        "arn",
-                        {
-                          "Ref": "AWS::Partition"
-                        },
-                        "lambda",
-                        {
-                          "Ref": "AWS::Region"
-                        },
-                        {
-                          "Ref": "AWS::AccountId"
-                        },
-                        "function",
-                        "aws-icc-prod-transcribeJobProducer"
-                      ]
-                    ]
-                  },
-                  "Action": [
-                    "lambda:AddPermission",
-                    "lambda:RemovePermission"
-                  ]
-                },
                 {
                   "Effect": "Allow",
                   "Resource": {
@@ -1222,7 +1153,7 @@
                           "Ref": "AWS::AccountId"
                         },
                         "function",
-                        "aws-icc-prod-splitTranscript"
+                        "aws-icc-dev-splitTranscript"
                       ]
                     ]
                   },
@@ -1273,7 +1204,7 @@
                           "Ref": "AWS::AccountId"
                         },
                         "function",
-                        "aws-icc-prod-analyseText"
+                        "aws-icc-dev-analyseText"
                       ]
                     ]
                   },
@@ -1324,7 +1255,7 @@
                           "Ref": "AWS::AccountId"
                         },
                         "function",
-                        "aws-icc-prod-createCallResolutionClassifer"
+                        "aws-icc-dev-createCallResolutionClassifer"
                       ]
                     ]
                   },
@@ -1375,7 +1306,7 @@
                           "Ref": "AWS::AccountId"
                         },
                         "function",
-                        "aws-icc-prod-createCallMotivationClassifier"
+                        "aws-icc-dev-createCallMotivationClassifier"
                       ]
                     ]
                   },
@@ -1397,9 +1328,9 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-icc/prod/1596656717357-2020-08-05T19:45:17.357Z/custom-resources.zip"
+          "S3Key": "serverless/aws-icc/dev/1606792717163-2020-12-01T03:18:37.163Z/custom-resources.zip"
         },
-        "FunctionName": "aws-icc-prod-custom-resource-existing-s3",
+        "FunctionName": "aws-icc-dev-custom-resource-existing-s3",
         "Handler": "s3/handler.handler",
         "MemorySize": 1024,
         "Runtime": "nodejs12.x",
@@ -2087,13 +2018,13 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1596656703888": {
+    "ApiGatewayDeployment1606792701786": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
           "Ref": "Api"
         },
-        "StageName": "prod"
+        "StageName": "dev"
       },
       "DependsOn": [
         "ApiGatewayMethodApiTranscriptsOptions",
@@ -2332,6 +2263,26 @@
         }
       }
     },
+    "TranscribeJobProducerEventSourceMappingSQSAudioFilesQueue": {
+      "Type": "AWS::Lambda::EventSourceMapping",
+      "DependsOn": "TranscribeS3DynamoDBRole",
+      "Properties": {
+        "BatchSize": 10,
+        "EventSourceArn": {
+          "Fn::GetAtt": [
+            "AudioFilesQueue",
+            "Arn"
+          ]
+        },
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "TranscribeJobProducerLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Enabled": true
+      }
+    },
     "LambdaBasicExecutionRole": {
       "Type": "AWS::IAM::Role",
       "Properties": {
@@ -2340,7 +2291,7 @@
             "",
             [
               "basic-execution",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -2374,7 +2325,7 @@
             "",
             [
               "transcribe-s3-dynamo-full-access",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -2411,7 +2362,9 @@
                 {
                   "Effect": "Allow",
                   "Action": [
-                    "dynamodb:Update*"
+                    "dynamodb:Update*",
+                    "dynamodb:batchWrite",
+                    "dynamodb:BatchWriteItem"
                   ],
                   "Resource": [
                     {
@@ -2421,6 +2374,20 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "sqs:GetQueueAttributes",
+                    "sqs:DeleteMessage",
+                    "sqs:ReceiveMessage"
+                  ],
+                  "Resource": {
+                    "Fn::GetAtt": [
+                      "AudioFilesQueue",
+                      "Arn"
+                    ]
+                  }
                 },
                 {
                   "Effect": "Allow",
@@ -2435,7 +2402,7 @@
                         "",
                         [
                           "arn:aws:s3:::",
-                          "transcription-output-prod-",
+                          "transcription-output-dev-",
                           {
                             "Ref": "ServicePrefix"
                           }
@@ -2447,7 +2414,7 @@
                         "",
                         [
                           "arn:aws:s3:::",
-                          "transcription-output-prod-",
+                          "transcription-output-dev-",
                           {
                             "Ref": "ServicePrefix"
                           },
@@ -2471,7 +2438,7 @@
             "",
             [
               "dynamodb-batch-write-role",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -2543,7 +2510,7 @@
             "",
             [
               "s3-readonly-access",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -2577,7 +2544,7 @@
             "",
             [
               "transcription-audio-files",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -2614,7 +2581,7 @@
             "",
             [
               "scan-transcripts",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -2672,7 +2639,7 @@
             "",
             [
               "split-transcript-role",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -2707,7 +2674,7 @@
             "",
             [
               "get-sentiments-role",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -2744,7 +2711,7 @@
             "",
             [
               "text-analysis-role",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -2819,7 +2786,7 @@
             "",
             [
               "comprehend-full-access-role",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -2859,7 +2826,7 @@
             "",
             [
               "comprehend-data-access",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -2898,7 +2865,7 @@
             "",
             [
               "cognito-authorizer",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -2951,7 +2918,7 @@
               {
                 "Ref": "UserPoolName"
               },
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -3049,7 +3016,7 @@
               {
                 "Ref": "IdentityPoolName"
               },
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -3083,7 +3050,7 @@
               {
                 "Ref": "QuickSightUserRoleName"
               },
-              "_prod_",
+              "_dev_",
               {
                 "Ref": "ServicePrefix"
               }
@@ -3161,7 +3128,7 @@
             "",
             [
               "comprehend-call-resolution",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -3178,7 +3145,7 @@
             "",
             [
               "comprehend-call-motivation",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -3195,7 +3162,24 @@
             "",
             [
               "transcription-output",
-              "-prod-",
+              "-dev-",
+              {
+                "Ref": "ServicePrefix"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    "AudioFilesQueue": {
+      "Type": "AWS::SQS::Queue",
+      "Properties": {
+        "QueueName": {
+          "Fn::Join": [
+            "",
+            [
+              "audio-files-queue",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -3212,7 +3196,7 @@
             "",
             [
               "transcription-audio-files",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -3244,7 +3228,7 @@
             "",
             [
               "jobStatus",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -3349,7 +3333,7 @@
             "",
             [
               "split-transcript-output",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -3366,7 +3350,7 @@
             "",
             [
               "text-analysis-output",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -3383,7 +3367,7 @@
             "",
             [
               "get-presignedurl-policy",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -3406,7 +3390,7 @@
                     "",
                     [
                       "arn:aws:s3:::",
-                      "transcription-audio-files-prod-",
+                      "transcription-audio-files-dev-",
                       {
                         "Ref": "ServicePrefix"
                       }
@@ -3418,7 +3402,7 @@
                     "",
                     [
                       "arn:aws:s3:::",
-                      "transcription-audio-files-prod-",
+                      "transcription-audio-files-dev-",
                       {
                         "Ref": "ServicePrefix"
                       },
@@ -3440,7 +3424,7 @@
             "",
             [
               "text-analysis-policy",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -3463,7 +3447,7 @@
                     "",
                     [
                       "arn:aws:s3:::",
-                      "text-analysis-output-prod-",
+                      "text-analysis-output-dev-",
                       {
                         "Ref": "ServicePrefix"
                       }
@@ -3475,7 +3459,7 @@
                     "",
                     [
                       "arn:aws:s3:::",
-                      "text-analysis-output-prod-",
+                      "text-analysis-output-dev-",
                       {
                         "Ref": "ServicePrefix"
                       },
@@ -3501,7 +3485,7 @@
               "",
               [
                 "text_analysis_database",
-                "-prod-",
+                "-dev-",
                 {
                   "Ref": "ServicePrefix"
                 }
@@ -3520,7 +3504,7 @@
             "",
             [
               "text-analysis-metadata-crawler",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -3564,7 +3548,7 @@
             "",
             [
               "text-analysis-athena-results",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -3586,12 +3570,12 @@
             "",
             [
               "WITH dataset AS ( select asset_id as id, call_resolution_status as resolution, call_motivation_status as motivation, turns from ",
-              "\"text_analysis_database-prod-",
+              "\"text_analysis_database-dev-",
               {
                 "Ref": "ServicePrefix"
               },
               "\".\"",
-              "text_analysis_output_prod_",
+              "text_analysis_output_dev_",
               {
                 "Fn::Join": [
                   "_",
@@ -3620,7 +3604,7 @@
             "",
             [
               "comprehend-full-access-policy",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -3723,7 +3707,7 @@
             "",
             [
               "sns-notification",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -3764,7 +3748,7 @@
             "",
             [
               "threat-notification",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -3776,12 +3760,161 @@
             "",
             [
               "threat-notification",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
             ]
           ]
+        }
+      }
+    },
+    "S3NotificationLambdaFunction": {
+      "DependsOn": [
+        "NotificationLambdaIAMRole"
+      ],
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "ZipFile": "import json\nimport logging\nimport boto3\nimport os\n\nsqs = boto3.resource('sqs')\n\nlogger = logging.getLogger()\nlogger.setLevel(logging.INFO)\n\ndef lambda_handler(event,context):\n  queue_name = os.environ['QUEUE_NAME']\n  queue = sqs.get_queue_by_name(QueueName=queue_name)\n\n  response = queue.send_message(MessageBody='new file received',MessageAttributes={\n    'bucketName': {\n      'StringValue': event['Records'][0]['s3']['bucket']['name'],\n      'DataType': 'String'\n    },\n    'objectKey': {\n      'StringValue': event['Records'][0]['s3']['object']['key'],\n      'DataType': 'String'\n    },\n    'objectSize': {\n      'StringValue': str(event['Records'][0]['s3']['object']['size']),\n      'DataType': 'String'\n    }\n  })\n  logger.info('queue response {}'.format(response))\n"
+        },
+        "Environment": {
+          "Variables": {
+            "QUEUE_NAME": {
+              "Fn::GetAtt": [
+                "AudioFilesQueue",
+                "QueueName"
+              ]
+            }
+          }
+        },
+        "Handler": "index.lambda_handler",
+        "Role": {
+          "Fn::GetAtt": [
+            "NotificationLambdaIAMRole",
+            "Arn"
+          ]
+        },
+        "Runtime": "python3.6",
+        "Timeout": 5
+      }
+    },
+    "NotificationLambdaInvokePermission": {
+      "DependsOn": [
+        "TranscriptionAudioFiles"
+      ],
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "S3NotificationLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "s3.amazonaws.com",
+        "SourceAccount": {
+          "Ref": "AWS::AccountId"
+        },
+        "SourceArn": {
+          "Fn::GetAtt": [
+            "TranscriptionAudioFiles",
+            "Arn"
+          ]
+        }
+      }
+    },
+    "NotificationLambdaIAMRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "lambda.amazonaws.com"
+                ]
+              },
+              "Action": [
+                "sts:AssumeRole"
+              ]
+            }
+          ]
+        },
+        "Path": "/",
+        "Policies": [
+          {
+            "PolicyName": "root",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "s3:GetBucketNotification",
+                    "s3:PutBucketNotification"
+                  ],
+                  "Resource": "*"
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "sqs:*"
+                  ],
+                  "Resource": "*"
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "logs:CreateLogGroup",
+                    "logs:CreateLogStream",
+                    "logs:PutLogEvents"
+                  ],
+                  "Resource": "arn:aws:logs:*:*:*"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "CustomResourceLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Handler": "index.lambda_handler",
+        "Role": {
+          "Fn::GetAtt": [
+            "NotificationLambdaIAMRole",
+            "Arn"
+          ]
+        },
+        "Code": {
+          "ZipFile": "from __future__ import print_function\nimport json\nimport boto3\nimport cfnresponse\n\nprint('Loading function')\n\ns3 = boto3.resource('s3')\n\ndef lambda_handler(event, context):\n    print(\"Received event: \" + json.dumps(event, indent=2))\n    responseData={}\n    try:\n        if event['RequestType'] == 'Delete':\n            print(\"Request Type:\",event['RequestType'])\n            Bucket=event['ResourceProperties']['Bucket']\n            delete_notification(Bucket)\n            print(\"Sending response to custom resource after Delete\")\n        elif event['RequestType'] == 'Create' or event['RequestType'] == 'Update':\n            print(\"Request Type:\",event['RequestType'])\n            LambdaArn=event['ResourceProperties']['LambdaArn']\n            Bucket=event['ResourceProperties']['Bucket']\n            add_notification(LambdaArn, Bucket)\n            responseData={'Bucket':Bucket}\n            print(\"Sending response to custom resource\")\n        responseStatus = cfnresponse.SUCCESS\n    except Exception as e:\n        print('Failed to process:', e)\n        responseStatus = cfnresponse.FAILED\n        responseData = {'Failure': 'Something bad happened.'}\n    cfnresponse.send(event, context, responseStatus, responseData)\n\ndef add_notification(LambdaArn, Bucket):\n    bucket_notification = s3.BucketNotification(Bucket)\n    response = bucket_notification.put(\n      NotificationConfiguration={\n        'LambdaFunctionConfigurations': [\n          {\n            'LambdaFunctionArn': LambdaArn,\n            'Events': [\n                's3:ObjectCreated:*'\n            ]\n            # 'Filter': {\n            # 'Key': {\n            #     'FilterRules': [\n            #       {\n            #         \"Name\": \"suffix\",\n            #         \"Value\": \".json\"\n            #       }\n            #     ]\n            #   }\n            # }\n          },\n          {\n            'LambdaFunctionArn': LambdaArn,\n            'Events': [\n                's3:ObjectCreated:*'\n            ]\n            # 'Filter': {\n            # 'Key': {\n            #     'FilterRules': [\n            #       {\n            #         'Name': 'suffix',\n            #         'Value': '.wav'\n            #       }\n            #     ]\n            #   }\n            # }\n          },\n          {\n            'LambdaFunctionArn': LambdaArn,\n            'Events': [\n                's3:ObjectCreated:*'\n            ]\n            # 'Filter': {\n            # 'Key': {\n            #     'FilterRules': [\n            #       {\n            #         'Name': 'suffix',\n            #         'Value': '.txt'\n            #       }\n            #     ]\n            #   }\n            # }\n          }\n        ]\n      }\n    )\n    print(\"Put request completed....\")\n\ndef delete_notification(Bucket):\n    bucket_notification = s3.BucketNotification(Bucket)\n    response = bucket_notification.put(\n        NotificationConfiguration={}\n    )\n    print(\"Delete request completed....\")\n"
+        },
+        "Runtime": "python3.6",
+        "Timeout": 50
+      }
+    },
+    "LambdaTrigger": {
+      "Type": "Custom::LambdaTrigger",
+      "DependsOn": "NotificationLambdaInvokePermission",
+      "Properties": {
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "CustomResourceLambdaFunction",
+            "Arn"
+          ]
+        },
+        "LambdaArn": {
+          "Fn::GetAtt": [
+            "S3NotificationLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Bucket": {
+          "Ref": "TranscriptionAudioFiles"
         }
       }
     },
@@ -4085,7 +4218,7 @@
             "",
             [
               "api",
-              "-prod-",
+              "-dev-",
               {
                 "Ref": "ServicePrefix"
               }
@@ -4229,7 +4362,7 @@
                 "HTTPSPort": "443",
                 "OriginProtocolPolicy": "https-only"
               },
-              "OriginPath": "/prod",
+              "OriginPath": "/dev",
               "Id": "apigatewayorigin"
             }
           ],
@@ -4337,79 +4470,79 @@
     "TranscribeJobProducerLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "TranscribeJobProducerLambdaVersionswBqveyMVNTuOCipMjIjOVpLJHRZNmVAbB7GLvBtE"
+        "Ref": "TranscribeJobProducerLambdaVersionZu4IG8iyGuvTSvQW5udrC1LrKI7lHBaJ9buorod4"
       }
     },
     "SplitTranscriptLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "SplitTranscriptLambdaVersionXAGWafJiFscz2UclaxnMieEcLEHxB8UDU6KkyfSRDQ4"
+        "Ref": "SplitTranscriptLambdaVersionFknrhKQrgmNYPfqzP3WFgskPMhkbaOSPQJEXVTCCPr0"
       }
     },
     "AnalyseTextLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "AnalyseTextLambdaVersionwRDBW58HQZshCZPG1s683MBLo9ThRFswwQM0W4btBI"
+        "Ref": "AnalyseTextLambdaVersiontmmhwbwoFtJn5drrsdaWxVwZGndYwWcoujIjIrHlc"
       }
     },
     "GetTranscriptsLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetTranscriptsLambdaVersionWhSzMAiQoRUWVz3XAHOub7MspgvdGzvwuLFT0WZBhA"
+        "Ref": "GetTranscriptsLambdaVersionbl2XPClw0XGn8iC98R2pkO6cuNAxkgmlPN2DP4idI"
       }
     },
     "GetAudioLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetAudioLambdaVersionixE09GCBLxIekgVlBCYgueME7Mssr8zmxrXphTQlbs"
+        "Ref": "GetAudioLambdaVersionL6CYYiyfefvipPC2aCmwFYMHJ5fZjNjJTVzNLeGNI"
       }
     },
     "GetSentimentLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetSentimentLambdaVersionlAm4SlFVBkJG282a3t94ZeFqLU546dKnIgd3mcMcwXU"
+        "Ref": "GetSentimentLambdaVersionBZZfkaY3t34NxmyXFTWkXoYnGuf3x8A4X9P06xU"
       }
     },
     "GetPresignedUrlLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetPresignedUrlLambdaVersionZCKVKZv7tZgnWkK8DDps3YYVDDPjU8e1W9ZJwVT18"
+        "Ref": "GetPresignedUrlLambdaVersionrj0hmKTWX3dLgCWKdE9eQEykx44J70wCTYbysXMo"
       }
     },
     "UpdateStatusLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "UpdateStatusLambdaVersionk5XaoCmLOOrxwc8Zi2T3DrOfHwXEjTfKO9UUBGqPBPo"
+        "Ref": "UpdateStatusLambdaVersionfuecvlGY3xyXMbAnIhUd7am4UPAAHKftgn5JZK2qiM"
       }
     },
     "QuickSightFederationFunctionLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "QuickSightFederationFunctionLambdaVersionEnwx6MUxQDyI4sqkH4rPfOPKlWCNLwzE5sqGIEEgUFI"
+        "Ref": "QuickSightFederationFunctionLambdaVersionU50ZLVlE9lDsCLZe1N5xhsrdx2tuK2uqwP91OlUAW4"
       }
     },
     "CreateCallResolutionClassiferLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateCallResolutionClassiferLambdaVersioneKkdukzpkw18BTxRyxoc3N34aNS6POOTKUYgTKwF0"
+        "Ref": "CreateCallResolutionClassiferLambdaVersionSiLPY9yYIYZhUV7WN2jOxdD43aZaLOFpHH5Ysspwuk"
       }
     },
     "CreateCallMotivationClassifierLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateCallMotivationClassifierLambdaVersionmdyUWGZvjevcLutd2StHiZx0ThLi8GMoblf24jLniY"
+        "Ref": "CreateCallMotivationClassifierLambdaVersionTVYuGxemxkjDgSXTUseIwYyfM0pHcmykp8EH9qvoM"
       }
     },
     "CreateCallResolutionEndpointLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateCallResolutionEndpointLambdaVersionKegdf5ilCKLEqDfPrXVxHBDvLjfkR4UyX4mJKUQoS0"
+        "Ref": "CreateCallResolutionEndpointLambdaVersionMbrnG7JC6IYxyYH7BEuIROPO2l0iNduLpfHHLiGhrU"
       }
     },
     "CreateCallMotivationEndpointLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateCallMotivationEndpointLambdaVersionJcgomsusL2muU9iJ7NWAvMCEXg4SThgT5ifamAUY"
+        "Ref": "CreateCallMotivationEndpointLambdaVersionhAt7KooJTV7frbb48l1BUkDIGtUECe1tGyiqB36msA"
       }
     },
     "ServiceEndpoint": {
@@ -4430,13 +4563,13 @@
             {
               "Ref": "AWS::URLSuffix"
             },
-            "/prod"
+            "/dev"
           ]
         ]
       }
     },
     "Stage": {
-      "Value": "prod"
+      "Value": "dev"
     },
     "ApiGatewayDomain": {
       "Value": {
@@ -4580,7 +4713,7 @@
     },
     "UserPoolDomainName": {
       "Type": "String",
-      "Default": "icc-prod"
+      "Default": "icc-dev"
     },
     "IdentityPoolName": {
       "Type": "String",
@@ -4619,6 +4752,18 @@
     "QSS3KeyPrefix": {
       "Type": "String",
       "Default": "quickstart-onica-post-call-analytics/"
+    },
+    "ModeOfOperation": {
+      "Type": "String",
+      "Default": "AUDIO"
+    },
+    "MetadataOrAudioSuffix": {
+      "Type": "String",
+      "Default": ""
+    },
+    "AudioFileJsonPath": {
+      "Type": "String",
+      "Default": ""
     }
   }
 }

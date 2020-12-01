@@ -50,8 +50,16 @@ Resources:
               - Effect: Allow
                 Action:
                   - 'dynamodb:Update*'
+                  - 'dynamodb:batchWrite'
+                  - 'dynamodb:BatchWriteItem'
                 Resource: 
                   - !GetAtt StatusTable.Arn
+              - Effect: Allow
+                Action:
+                  - sqs:GetQueueAttributes
+                  - sqs:DeleteMessage
+                  - sqs:ReceiveMessage
+                Resource: !GetAtt AudioFilesQueue.Arn
               - Effect: Allow
                 Action:
                   - 's3:Put*'
